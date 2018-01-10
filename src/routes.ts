@@ -1,6 +1,6 @@
-import { DashboardComponent } from './app/pages/dashboard/dashboard.component';
+import { DashboardComponent } from './app/sections/dashboard/dashboard.component';
+import { PokemonListComponent } from './app/sections/pokemon-list/pokemon-list.component';
 import { Routes } from '@angular/router';
-import { PokemonListComponent } from './app/pages/pokemon-list/pokemon-list.component';
 
 export const appRoutes: Routes = [
 	{path: '', component: DashboardComponent },
