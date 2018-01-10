@@ -11,6 +11,9 @@ import { PokemonListComponent } from './sections/pokemon-list/pokemon-list.compo
 import { appRoutes } from '../routes';
 
 import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { ChartsModule } from 'ng2-charts';
     NavbarComponent,
     SidebarComponent,
     DashboardComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
