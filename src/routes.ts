@@ -3,6 +3,8 @@ import { PokemonListComponent } from './app/sections/pokemon-list/pokemon-list.c
 import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
-	{path: '', component: DashboardComponent },
-	{path: 'list', component: PokemonListComponent }
+	{path: 'dashboard', component: DashboardComponent },
+	{path: 'list', component: PokemonListComponent },
+
+	{path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
