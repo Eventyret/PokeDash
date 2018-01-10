@@ -10,6 +10,8 @@ import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { PokemonListComponent } from './sections/pokemon-list/pokemon-list.component';
 import { appRoutes } from '../routes';
 
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { appRoutes } from '../routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
