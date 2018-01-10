@@ -1,11 +1,12 @@
-<app-navbar></app-navbar>
+<app-navbar id ="navbar" class="navbar navbar-dark fixed-top bg-dark"></app-navbar>
 
 
 <div class="container-fluid">
-  <div class="row" id="maincontent">
-    <app-sidebar class="col-sm-3"></app-sidebar>
+  <div class="row" id="mainContent">
+    <app-sidebar class="col-sm-3 col-md-2 d-none d-sm-block sidebar" id="sidebar"></app-sidebar>
+    
     <div class="col-sm-9" id="dashboard">
-      Content goes here
+      <p>Content goes here</p>
     </div>
   </div>
 </div>
