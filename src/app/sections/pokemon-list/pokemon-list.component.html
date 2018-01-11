@@ -5,14 +5,26 @@
       <tr>
         <th>Pokedex Number</th>
         <th>Name</th>
-        <th>Japanese Name</th>
+        <th>Type</th>
+        <th>Attack</th>
+        <th>Defense</th>
+        <th>Speed</th>
+        <th>Generation</th>
+        <th>Legendary</th>
+        <th>In Battle?</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of pokemons">
-        <td>{{pokemon.pokedex_number}}</td>
-        <td>{{pokemon.name}}</td>
-        <td>{{pokemon.japanese_name}}</td>
+        <td>{{pokemon.id}}</td>
+        <td>{{pokemon.Name}}</td>
+        <td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
+        <td>{{pokemon.Attack}}</td>
+        <td>{{pokemon.Defense}}</td>
+        <td>{{pokemon.Speed}}</td>
+        <td>{{pokemon.Generation}}</td>
+        <td><span class="badge badge-warning" *ngIf="pokemon.Legendary == 1">Legendary <i class="fa fa-star"></i></span></td>
+        <td><span class="badge badge-danger" *ngIf="pokemon.battle == 1">Battling XYZ</span></td>
       </tr>
     </tbody>
   </table>
