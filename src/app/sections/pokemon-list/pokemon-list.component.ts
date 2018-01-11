@@ -16,6 +16,7 @@ export class PokemonListComponent implements OnInit {
   page = 1;
   limit = 200;
   loading = false;
+  battleing: string[];
 
   ngOnInit() {
     this.populateTable();
@@ -23,10 +24,10 @@ export class PokemonListComponent implements OnInit {
 
   populateTable(): void {
     this.pokemonService.getPokemons().subscribe(res => {
-      console.log(res);
       this.pokemons = _.sortBy(res.data, [function(o) { return o.id}])
       this.loading = false;
-      console.log(this.pokemons);
+      this.battleing = _.filter(res.data, { "battle": 1})
+      console.log(this.battleing);
     });
   }
 }

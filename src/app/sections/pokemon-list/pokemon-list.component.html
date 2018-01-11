@@ -23,8 +23,8 @@
         <td>{{pokemon.Defense}}</td>
         <td>{{pokemon.Speed}}</td>
         <td>{{pokemon.Generation}}</td>
-        <td><span class="badge badge-warning" *ngIf="pokemon.Legendary == 1">Legendary <i class="fa fa-star"></i></span></td>
-        <td><span class="badge badge-danger" *ngIf="pokemon.battle == 1">Battling XYZ</span></td>
+        <td><span class="badge badge-warning" *ngIf="pokemon.Legendary">Legendary <i class="fa fa-star"></i></span></td>
+        <td><span class="badge badge-danger" *ngIf="pokemon.battle">Battling XYZ</span></td>
       </tr>
     </tbody>
   </table>
