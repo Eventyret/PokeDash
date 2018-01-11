@@ -1,6 +1,7 @@
 import { PokemonDataService } from './../../services/pokemon-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemons } from '../../components/shared/pokemons'
+import * as _ from "lodash";
 
 @Component({
   selector: "app-pokemon-list",
@@ -23,7 +24,7 @@ export class PokemonListComponent implements OnInit {
   populateTable(): void {
     this.pokemonService.getPokemons().subscribe(res => {
       console.log(res);
-      this.pokemons = res.data;
+      this.pokemons = _.sortBy(res.data, [function(o) { return o.id}])
       this.loading = false;
       console.log(this.pokemons);
     });
