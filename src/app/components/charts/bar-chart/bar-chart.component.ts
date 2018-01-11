@@ -3,12 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from "lodash";
 
 
-// Mock Data
-const SAMPLE: any[] = [
-  { data: [216, 12, 45, 96, 47, 60, 98], label: "Pokemon Numbers" },
-  { data: [22, 52, 45, 206, 347, 60, 98], label: "Q5" }
-];
-
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
@@ -18,8 +12,9 @@ export class BarChartComponent implements OnInit {
 
 
   constructor(private pokeService: PokemonDataService) { }
-
-  public barChartData: any [] = SAMPLE;
+  public barChartData: any[] = [
+    {data: this.barData, label: "Pokemon's"}
+  ]
   public barChartLabels: string[];
   public barChartType = 'bar';
   public barChartLegend = false;
@@ -35,8 +30,11 @@ export class BarChartComponent implements OnInit {
   getLabels(){
     this.pokeService.getPokemons().subscribe(res => {
       const data = res.data;
-      this.barChartLabels = _.uniq(_.map(data, "Type1"))
-      console.log(this.barChartLabels);
+      const filterData = _.countBy(data, "Type1");
+      Object.values(filterData);
+      Object.keys(filterData);
+      console.log(this.barChartData)
+      console.log(this.barChartLabels)
     });
 
   }
