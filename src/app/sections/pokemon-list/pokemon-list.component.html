@@ -1,3 +1,19 @@
-<p>
-  pokemon-list works!
-</p>
+<div class="section-container">
+  <h2>Pokemon List</h2>
+  <table class="table table-inverse table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Pokedex Number</th>
+        <th>Name</th>
+        <th>Japanese Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemons">
+        <td>{{pokemon.id}}</td>
+        <td>{{pokemon.name}}</td>
+        <td>{{pokemon.jname}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
