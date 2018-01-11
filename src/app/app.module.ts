@@ -20,6 +20,8 @@ import { BattleStatusComponent } from './sections/battle-status/battle-status.co
 import { BattlesComponent } from './components/battles/battles.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
+import { OrderModule } from "ngx-order-pipe";
+
 
 @NgModule({
   declarations: [
@@ -33,15 +35,10 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
-    PaginationComponent,
+    PaginationComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    ChartsModule,
-    HttpModule
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, OrderModule],
   providers: [PokemonDataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
