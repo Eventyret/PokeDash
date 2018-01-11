@@ -10,22 +10,22 @@ import { Pokemons } from '../../components/shared/pokemons'
 export class PokemonListComponent implements OnInit {
   constructor(private pokemonService: PokemonDataService) {}
 
-  pokemons: Pokemons[]
+  pokemons: Pokemons[];
   total: 0;
   page = 1;
   limit = 200;
   loading = false;
 
   ngOnInit() {
-    this.pokemonService.getPokemons();
+    this.populateTable();
   }
 
   populateTable(): void {
-    this.pokemonService.getPokemons()
-    .subscribe(res => {
+    this.pokemonService.getPokemons().subscribe(res => {
       console.log(res);
-      this.pokemons = res['data'];
+      this.pokemons = res.data;
       this.loading = false;
-    })
+      console.log(this.pokemons);
+    });
   }
 }

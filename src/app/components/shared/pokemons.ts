@@ -1,5 +1,5 @@
 export interface Pokemons {
-  id: number;
+  pokedex_number: number;
   name: string;
   japanese_name: string;
 }
