@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { PokemonDataService } from './services/pokemon-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -36,9 +38,10 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ChartsModule
+    ChartsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [PokemonDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
