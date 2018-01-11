@@ -12,10 +12,12 @@ export class BarChartComponent implements OnInit {
 
 
   constructor(private pokeService: PokemonDataService) { }
+  pokemonLabels: string[];
+  pokemonData: number[];
   public barChartData: any[] = [
-    {data: this.barData, label: "Pokemon's"}
+    {data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]}
   ]
-  public barChartLabels: string[];
+  public barChartLabels: string[] = this.pokemonLabels
   public barChartType = 'bar';
   public barChartLegend = false;
   public barChartOptions: any = {
@@ -30,12 +32,15 @@ export class BarChartComponent implements OnInit {
   getLabels(){
     this.pokeService.getPokemons().subscribe(res => {
       const data = res.data;
-      const filterData = _.countBy(data, "Type1");
-      Object.values(filterData);
-      Object.keys(filterData);
-      console.log(this.barChartData)
-      console.log(this.barChartLabels)
-    });
+      const count = _.countBy(data, "Type1")
+      console.log(count)
+      this.pokemonData = Object.keys(count).map(val => count[val]);
+      console.log(this.pokemonData);
+      let labels = Object.keys(count)
+      this.barChartLabels = _.castArray(labels)
+      console.log(this.pokemonLabels)
+
+    })
 
   }
 }
