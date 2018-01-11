@@ -14,6 +14,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
+import { BattleComponent } from './sections/battle/battle.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PieChartComponent } from './components/charts/pie-chart/pie-chart.compo
     PokemonListComponent,
     BarChartComponent,
     LineChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    BattleComponent
   ],
   imports: [
     BrowserModule,
