@@ -16,6 +16,7 @@ import { LineChartComponent } from './components/charts/line-chart/line-chart.co
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { BattleStatusComponent } from './sections/battle-status/battle-status.component';
 import { BattlesComponent } from './components/battles/battles.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { BattlesComponent } from './components/battles/battles.component';
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

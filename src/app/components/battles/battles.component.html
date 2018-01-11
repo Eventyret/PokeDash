@@ -8,5 +8,5 @@
     {{battleInput.fighting}}<br>
     <p *ngIf="battleInput.isActive">In a fight</p>
   </div>
-  <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">Start Battle</button>
+  <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
 </div>
