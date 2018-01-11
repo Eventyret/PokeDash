@@ -21,8 +21,8 @@ export class LineChartComponent implements OnInit {
   llineChartOptions: any = {
     responsive: true
   };
-  lineChartLegend: true;
-  lineCharttype: "line";
+  lineChartLegend = true;
+  lineChartType = "line";
   lineChartColors = LINE_CHART_COLORS;
 
   ngOnInit() {}
