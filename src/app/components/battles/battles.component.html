@@ -6,7 +6,7 @@
      {{battleInput.name}}<br>
      VS<br>
     {{battleInput.fighting}}<br>
-    {{battleInput.isActive}}
+    <p *ngIf="battleInput.isActive">In a fight</p>
   </div>
   <button class="btn btn-default action">Start Battle</button>
 </div>
