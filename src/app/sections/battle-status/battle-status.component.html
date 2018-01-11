@@ -1,8 +1,8 @@
 <div class="section-container">
   <h2>Pokemon Battles</h2>
   <div class="card-deck battles">
-    <div *ngFor="let battle of battles">
-      <app-battles></app-battles>
+    <div *ngFor="let battle of battles; let i = index">
+      <app-battles [battleInput]="battle" [battleNumber]="i"></app-battles>
     </div>
   </div>
 </div>

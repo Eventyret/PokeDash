@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Battle } from '../shared/battle';
 
 @Component({
   selector: 'app-battles',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class BattlesComponent implements OnInit {
 
   constructor() { }
+
+  @Input() battleInput: Battle;
+  @Input() battleNumber: number;
 
   ngOnInit() {
   }
