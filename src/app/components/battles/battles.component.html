@@ -1,4 +1,4 @@
-<div class="card mb-3 shadow block-status">
+<div class="card mb-3 shadow block-status" [ngStyle]="{'background-color': color}">
   <div class="card-header">
     Battle {{battleNumber +1}}
   </div>
@@ -8,5 +8,5 @@
     {{battleInput.fighting}}<br>
     <p *ngIf="battleInput.isActive">In a fight</p>
   </div>
-  <button class="btn btn-default action">Start Battle</button>
+  <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">Start Battle</button>
 </div>
