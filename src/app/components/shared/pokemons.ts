@@ -1,5 +1,15 @@
 export interface Pokemons {
-  pokedex_number: number;
-  name: string;
-  japanese_name: string;
+  id: number
+  Name: string
+  Type1: string
+  Type2: string
+  Total: number
+  HP: number
+  Attack: number
+  Defense: number
+  Speed: number
+  Generation: number  
+  Legendary: number
+  battle: number;
+  sortID: number
 }
