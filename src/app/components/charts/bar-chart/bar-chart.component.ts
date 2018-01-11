@@ -1,4 +1,7 @@
+import { PokemonDataService } from './../../../services/pokemon-data.service';
 import { Component, OnInit } from '@angular/core';
+import * as _ from "lodash";
+
 
 // Mock Data
 const SAMPLE: any[] = [
@@ -6,7 +9,6 @@ const SAMPLE: any[] = [
   { data: [22, 52, 45, 206, 347, 60, 98], label: "Q5" }
 ];
 
-const SAMPLE_LABLES: string[] = ['W1', 'G5', 'H7', 'D1', 'E55', 'G66', 'U86']
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
@@ -14,10 +16,11 @@ const SAMPLE_LABLES: string[] = ['W1', 'G5', 'H7', 'D1', 'E55', 'G66', 'U86']
 })
 export class BarChartComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private pokeService: PokemonDataService) { }
 
   public barChartData: any [] = SAMPLE;
-  public barChartLabels: string[] = SAMPLE_LABLES;
+  public barChartLabels: string[];
   public barChartType = 'bar';
   public barChartLegend = false;
   public barChartOptions: any = {
@@ -26,6 +29,15 @@ export class BarChartComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.getLabels();
   }
 
+  getLabels(){
+    this.pokeService.getPokemons().subscribe(res => {
+      const data = res.data;
+      this.barChartLabels = _.uniq(_.map(data, "Type1"))
+      console.log(this.barChartLabels);
+    });
+
+  }
 }
