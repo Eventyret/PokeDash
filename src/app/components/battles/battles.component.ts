@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Battle } from '../shared/battle';
 
+
 @Component({
-  selector: 'app-battles',
-  templateUrl: './battles.component.html',
-  styleUrls: ['./battles.component.css']
+  selector: "app-battles",
+  templateUrl: "./battles.component.html",
+  styleUrls: ["./battles.component.css"]
 })
 export class BattlesComponent implements OnInit {
-
-  constructor() { }
-
+  constructor() {}
+  
   color: string;
   buttonText: string;
 
@@ -17,22 +17,24 @@ export class BattlesComponent implements OnInit {
   @Input() battleNumber: number;
 
   ngOnInit() {
-    this.setBattleStatus(this.battleInput.isActive)
+    this.setBattleStatus(this.battleInput.isActive);
   }
 
-  setBattleStatus(isInBattle: boolean){
-    if(isInBattle) {
+  setBattleStatus(isInBattle: boolean) {
+    if (isInBattle) {
       this.battleInput.isActive = true;
       this.color = "#66BB6A";
-      this.buttonText = "Stop Fight"
+      this.buttonText = "Stop Fight";
     } else {
       this.battleInput.isActive = false;
       this.color = "#FF6B6B";
-      this.buttonText = "Activate Fight"
+      this.buttonText = "Activate Fight";
     }
   }
-  
-  toggleStatus(battleStatus: boolean){
+
+  toggleStatus(battleStatus: boolean) {
     this.setBattleStatus(!battleStatus);
   }
+
+  
 }
