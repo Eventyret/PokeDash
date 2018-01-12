@@ -12,7 +12,6 @@ import * as _ from "lodash";
 })
 export class BattleStatusComponent implements OnInit {
   constructor(private battleService: PokemonDataService) {}
-  battles: Battle[] = this.battles
   names: any[];
   Battles = [
     { id: 1, name: "Pokemon 1", fighting: "Pokemon 2", isActive: true },
@@ -20,9 +19,10 @@ export class BattleStatusComponent implements OnInit {
     { id: 3, name: "Pokemon 5", fighting: "Pokemon 6", isActive: true },
     { id: 4, name: "Pokemon 7", fighting: "Pokemon 8", isActive: false }
   ];
+  battles: Battle[] = this.Battles;
 
   ngOnInit(){
-    
+
   }
 }
 
