@@ -12,7 +12,7 @@ import * as _ from "lodash";
 })
 export class BattleStatusComponent implements OnInit {
   constructor(private battleService: PokemonDataService) {}
-  names: any[];
+  names:  any;
   Battles = [
     { id: 1, name: "Pokemon 1", fighting: "Pokemon 2", isActive: true },
     { id: 2, name: "Pokemon 3", fighting: "Pokemon 4", isActive: false },
@@ -21,9 +21,30 @@ export class BattleStatusComponent implements OnInit {
   ];
   battles: Battle[] = this.Battles;
 
-  ngOnInit(){
-
+  ngOnInit() {
+    this.getFightStatus();
   }
+
+  getFightStatus() {
+    this.battleService.getPokemons().subscribe(res => {
+      let pokemons = _.filter(res.data, function(o) {
+        return o.battle;
+      });
+      this.randomGenerator(pokemons);
+    });
+  }
+
+  randomGenerator(pokemons) {
+    let shuffledArray = _.shuffle(pokemons);
+    let pokemonBattles = _.slice(shuffledArray, 0, 8);
+    console.log(pokemonBattles)
+    this.names = pokemonBattles.map(pokemon => pokemon.Name);
+    for (let pair = 0; pair < this.names.length / 2; pair++) {
+    this.names[2 * pair], this.names[2 * pair + 1];
+    }
+    console.log(this.names);
+  }
+  
 }
 
 
