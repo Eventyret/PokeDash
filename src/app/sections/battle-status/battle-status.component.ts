@@ -1,5 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Pokemons } from './../../components/shared/pokemons';
+import { PokemonDataService } from './../../services/pokemon-data.service';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Battle } from "../../components/shared/battle";
+import * as _ from "lodash";
 
 const SAMPLE_BATTLES = [
   { id: 1, name: "Pokemon 1", fighting: "Pokemon 2", isActive: true },
@@ -12,10 +15,30 @@ const SAMPLE_BATTLES = [
   templateUrl: "./battle-status.component.html",
   styleUrls: ["./battle-status.component.css"]
 })
+
 export class BattleStatusComponent implements OnInit {
-  constructor() {}
+
+    randomPokemons: Pokemons[];
+  constructor(private battleService: PokemonDataService) {}
 
   battles: Battle[] = SAMPLE_BATTLES;
+  ngOnInit() {
+    this.getFightStatus();
+  }
 
-  ngOnInit() {}
+   getFightStatus(){
+    this.battleService.getPokemons()
+    .subscribe(res => {
+      let pokemons= _.filter(res.data, function(o){
+     return o.battle});
+     this.randomGenerator(pokemons);
+      }
+    )
+  }
+
+  randomGenerator(pokemons){
+    let shuffledArray = _.shuffle(pokemons)
+    this.randomPokemons = _.slice(shuffledArray, 0, 9)
+    console.log(this.randomPokemons)
+  }
 }
