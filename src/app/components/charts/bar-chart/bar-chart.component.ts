@@ -27,11 +27,11 @@ export class BarChartComponent implements OnInit {
     this.pokeService.getPokemons().subscribe(res => {
     const data = res.data;
     this.sortedData = _.countBy(data, "Type1");
-    let barData = Object.values(this.sortedData);
-    this.barChartData = _.castArray(barData);
-    console.log(this.barChartData);
-    console.log(this.sortedData)
+    this.mapLabels();
   })};
 
+  mapLabels(){
+    this.barChartData = this.barChartLabels.map(label => this.sortedData[label])
+  }
   
 }
