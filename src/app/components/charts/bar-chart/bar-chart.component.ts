@@ -14,8 +14,6 @@ export class BarChartComponent implements OnInit {
   public barChartLabels: string[] = ["Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire","Flying","Ghost","Grass","Ground","Ice","Normal","Poison","Psychic","Rock","Steel","Water"];
   public barChartType = "bar";
   public barChartLegend = false;
-  public labels: any[];
-  public chartData: any[];
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -27,16 +25,13 @@ export class BarChartComponent implements OnInit {
 
   getData() {
     this.pokeService.getPokemons().subscribe(res => {
-      const data = res.data;
-      this.sortedData = _.countBy(data, "Type1");
-      console.log(this.sortedData);
-      this.populateData();
-    });
-  }
-
-  populateData() {
+    const data = res.data;
+    this.sortedData = _.countBy(data, "Type1");
     let barData = Object.values(this.sortedData);
     this.barChartData = _.castArray(barData);
-  }
+    console.log(this.barChartData);
+    console.log(this.sortedData)
+  })};
 
+  
 }
