@@ -1,46 +1,53 @@
-import { PokemonDataService } from './../../../services/pokemon-data.service';
-import { Component, OnInit } from '@angular/core';
+import { PokemonDataService } from "./../../../services/pokemon-data.service";
+import { Component, OnInit, OnChanges } from "@angular/core";
 import * as _ from "lodash";
 
-
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  selector: "app-bar-chart",
+  templateUrl: "./bar-chart.component.html",
+  styleUrls: ["./bar-chart.component.css"]
 })
-export class BarChartComponent implements OnInit {
-
-
-  constructor(private pokeService: PokemonDataService) { }
-  pokemonLabels: string[];
-  pokemonData: number[];
-  public barChartData: any[] = [
-    {data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]}
-  ]
-  public barChartLabels: string[] = this.pokemonLabels
-  public barChartType = 'bar';
+export class BarChartComponent implements OnInit, OnChanges {
+  constructor(private pokeService: PokemonDataService) {}
+  public sortedData: any[];
+  public barChartData: any[] = [{ data: [1, 2, 3] }];
+  public barChartLabels: string[] = ["0", "0", "0"];
+  public barChartType = "bar";
   public barChartLegend = false;
+  public labels: any[];
+  public chartData: any[];
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
   };
 
   ngOnInit() {
-    this.getLabels();
+    this.getData();
   }
 
-  getLabels(){
+  getData() {
     this.pokeService.getPokemons().subscribe(res => {
       const data = res.data;
-      const count = _.countBy(data, "Type1")
-      console.log(count)
-      this.pokemonData = Object.keys(count).map(val => count[val]);
-      console.log(this.pokemonData);
-      let labels = Object.keys(count)
-      this.barChartLabels = _.castArray(labels)
-      console.log(this.pokemonLabels)
-
-    })
-
+      this.sortedData = _.countBy(data, "Type1");
+      console.log(this.sortedData);
+      this.populateData();
+    });
   }
+
+  populateData() {
+    let barData = Object.values(this.sortedData);
+    this.chartData = _.castArray(barData);
+    console.log(barData);
+    let barLabels = Object.keys(this.sortedData);
+    this.labels = _.castArray(barLabels);
+    console.log(barLabels);
+  }
+
+  ngOnChanges(){
+    this.barChartData = this.chartData
+    setTimeout(() => {
+      this.barChartLabels = this.labels
+    }, 0);
+  }
+
 }
