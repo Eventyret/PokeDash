@@ -1,5 +1,5 @@
 import { HttpModule } from '@angular/http';
-import { PokemonDataService } from './services/pokemon-data.service';
+import { PokemonDataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
