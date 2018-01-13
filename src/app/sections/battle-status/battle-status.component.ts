@@ -39,7 +39,6 @@ export class BattleStatusComponent implements OnInit {
         "pokemon2": randomNames[2*pairID+1],
         "isActive": false
       });
-      console.log(this.battles);
     }
   }
   

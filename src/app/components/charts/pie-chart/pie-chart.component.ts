@@ -34,7 +34,6 @@ export class PieChartComponent implements OnInit {
   getData() {
     this.pokeService.getPokemons().subscribe(res => {
       this.pokemon = res.data;
-      console.log(this.pokemon);
       this.findAverage();
     });
   }
@@ -58,6 +57,5 @@ export class PieChartComponent implements OnInit {
     let tempArray = [];
     let filledArray = tempArray.push(this.attack, this.defense, this.speed, this.hp)
     this.pieChartData = tempArray
-    console.log(this.pieChartData)
   }
 }
