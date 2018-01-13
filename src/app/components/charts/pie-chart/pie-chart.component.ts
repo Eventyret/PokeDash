@@ -55,9 +55,9 @@ export class PieChartComponent implements OnInit {
     this.generatePieData();
   }
   generatePieData(){
-    let y = [];
-    let x = y.push(this.attack, this.defense, this.speed, this.hp)
-    this.pieChartData = y
+    let tempArray = [];
+    let filledArray = tempArray.push(this.attack, this.defense, this.speed, this.hp)
+    this.pieChartData = tempArray
     console.log(this.pieChartData)
   }
 }
