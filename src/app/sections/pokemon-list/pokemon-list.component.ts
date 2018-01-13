@@ -15,7 +15,7 @@ export class PokemonListComponent implements OnInit {
   public battleing;
   public sortBy = "Name";
   public sortOrder = "asc";
-  public rowsOnPage = 25;
+  public rowsOnPage = 10;
   public filterQuery = "";
 
   ngOnInit() {

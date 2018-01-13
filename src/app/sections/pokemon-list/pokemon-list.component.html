@@ -1,6 +1,6 @@
 <div class="section-container">
   <h2>Pokemon List</h2>
-  <table class="table table-inverse table-hover" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+  <table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
     <thead class="thead-dark">
       <tr>
         <th>
@@ -47,7 +47,7 @@
     <tfoot>
       <tr>
         <td colspan="4">
-          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100]"></mfBootstrapPaginator>
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100,200]"></mfBootstrapPaginator>
         </td>
       </tr>
     </tfoot>
