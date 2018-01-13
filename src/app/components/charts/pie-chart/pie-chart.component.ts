@@ -1,7 +1,6 @@
 import { Pokemons } from "./../../shared/pokemons";
 import { PokemonDataService } from "./../../../services/data.service";
 import { Component, OnInit } from "@angular/core";
-import { LINE_CHART_COLORS } from "../../shared/chart.colors";
 import * as _ from "lodash";
 @Component({
   selector: "app-pie-chart",
