@@ -1,21 +1,38 @@
 <div class="section-container">
   <h2>Pokemon List</h2>
-  <table class="table table-inverse table-hover">
+  <table class="table table-inverse table-hover" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
     <thead class="thead-dark">
       <tr>
-        <th>Pokedex Number</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Attack</th>
-        <th>Defense</th>
-        <th>Speed</th>
-        <th>Generation</th>
-        <th>Legendary</th>
-        <th>In Battle?</th>
+        <th>
+          <mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Name">Name</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Type1">Type</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Attack">Attack</mfDefaultSorter></th>
+        <th>
+          <mfDefaultSorter by="Defense">Defense</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Speed">Speed</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pokemon of pokemons">
+      <tr *ngFor="let pokemon of mf.data">
         <td>{{pokemon.id}}</td>
         <td>{{pokemon.Name}}</td>
         <td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
@@ -27,5 +44,12 @@
         <td><span class="badge badge-danger" *ngIf="pokemon.battle">Battling XYZ</span></td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>

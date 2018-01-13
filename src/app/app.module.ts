@@ -3,7 +3,7 @@ import { PokemonDataService } from './services/pokemon-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,7 +20,10 @@ import { BattleStatusComponent } from './sections/battle-status/battle-status.co
 import { BattlesComponent } from './components/battles/battles.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
-import { OrderModule } from "ngx-order-pipe";
+import { DataTableModule } from "angular2-datatable";
+import { DataFilterPipe } from './components/shared/data-filter.pipe';
+import { Ng2FilterPipeModule } from "ng2-filter-pipe";
+
 
 
 @NgModule({
@@ -35,9 +38,10 @@ import { OrderModule } from "ngx-order-pipe";
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
-    PaginationComponent
+    PaginationComponent,
+    DataFilterPipe
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, OrderModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule, FormsModule, Ng2FilterPipeModule],
   providers: [PokemonDataService],
   bootstrap: [AppComponent]
 })
