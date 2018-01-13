@@ -12,7 +12,7 @@ export class PieChartComponent implements OnInit {
   constructor(private pokeService: PokemonDataService) {}
 
   pieChartData: number[] = [25,90, 44, 30];
-  pieChartLabels: string[] = ["Avg Attack", "Avg Defense", "Avg Speed", "Avg HP"];
+  pieChartLabels: string[] = ["Attack", "Defense", "Speed", "HP"];
   colors: any[] = [
     {
       backgroundColor: ["#EF5350", "#42A5F5", "#FFEE58", "#78C850"]
