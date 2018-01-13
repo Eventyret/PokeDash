@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Battle } from '../shared/battle';
+import { map } from "rxjs/operator/map";
+
 
 
 @Component({
@@ -15,6 +17,7 @@ export class BattlesComponent implements OnInit {
 
   @Input() battleInput: Battle;
   @Input() battleNumber: number;
+  winners: any[];
 
   ngOnInit() {
     this.setBattleStatus(this.battleInput.isActive);
@@ -35,6 +38,4 @@ export class BattlesComponent implements OnInit {
   toggleStatus(battleStatus: boolean) {
     this.setBattleStatus(!battleStatus);
   }
-
-  
 }
