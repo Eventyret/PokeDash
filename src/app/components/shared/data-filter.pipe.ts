@@ -2,15 +2,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from "lodash";
 
 @Pipe({
-  name: 'dataFilter'
+  name: "dataFilter"
 })
 export class DataFilterPipe implements PipeTransform {
-
-  transform(array: any[], query: string): any {
-    if (query) {
-      return _.filter(array, row=>row.name.indexOf(query) > -1);
+  transform(items: any[], callback: (item: any) => boolean): any {
+    if (!items || !callback) {
+      return items;
     }
-    return array;
+    return items.filter(item => callback(item));
   }
-
 }

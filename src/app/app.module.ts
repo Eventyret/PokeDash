@@ -22,6 +22,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 
 import { DataTableModule } from "angular2-datatable";
 import { DataFilterPipe } from './components/shared/data-filter.pipe';
+import { Ng2FilterPipeModule } from "ng2-filter-pipe";
+
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import { DataFilterPipe } from './components/shared/data-filter.pipe';
     PaginationComponent,
     DataFilterPipe
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule, FormsModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule, FormsModule, Ng2FilterPipeModule],
   providers: [PokemonDataService],
   bootstrap: [AppComponent]
 })
