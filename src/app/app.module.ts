@@ -14,7 +14,6 @@ import { appRoutes } from '../routes';
 
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
-import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { BattleStatusComponent } from './sections/battle-status/battle-status.component';
 import { BattlesComponent } from './components/battles/battles.component';
@@ -34,7 +33,6 @@ import { Ng2FilterPipeModule } from "ng2-filter-pipe";
     DashboardComponent,
     PokemonListComponent,
     BarChartComponent,
-    LineChartComponent,
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
