@@ -20,7 +20,7 @@ import { BattleStatusComponent } from './sections/battle-status/battle-status.co
 import { BattlesComponent } from './components/battles/battles.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
-import { OrderModule } from "ngx-order-pipe";
+import { DataTableModule } from "angular2-datatable";
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { OrderModule } from "ngx-order-pipe";
     BattlesComponent,
     PaginationComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, OrderModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule],
   providers: [PokemonDataService],
   bootstrap: [AppComponent]
 })
