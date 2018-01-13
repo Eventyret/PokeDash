@@ -55,3 +55,31 @@ a:hover {
 .section-container {
 	padding: 30px;
 }
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #212529;
+    border: 1px solid #212529;
+}
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+.page-item.disabled .page-link {
+    visibility: hidden;
+}
+.page-link:focus, .page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #212529;
+    border-color: #212529;
+}
+.badge-danger {
+	background-color: #ff6b6b;
+}

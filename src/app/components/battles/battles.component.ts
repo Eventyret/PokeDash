@@ -27,7 +27,7 @@ export class BattlesComponent implements OnInit {
       this.buttonText = "Stop Fight";
     } else {
       this.battleInput.isActive = false;
-      this.color = "#FF6B6B";
+      this.color = "#ff6b6b";
       this.buttonText = "Activate Fight";
     }
   }

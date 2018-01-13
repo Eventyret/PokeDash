@@ -1,6 +1,6 @@
 <div class="section-container">
   <h2>Pokemon List</h2>
-  <table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <table class="table table-inverse table-hover" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
     <thead class="thead-dark">
       <tr>
         <th>
@@ -10,7 +10,7 @@
           <mfDefaultSorter by="Name">Name</mfDefaultSorter>
         </th>
         <th>
-          <mfDefaultSorter by="Type">Type</mfDefaultSorter>
+          <mfDefaultSorter by="Type1">Type</mfDefaultSorter>
         </th>
         <th>
           <mfDefaultSorter by="Attack">Attack</mfDefaultSorter></th>
@@ -24,7 +24,7 @@
           <mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
         </th>
         <th>
-          <mfDefaultSorter by="Gegendary">Legendary</mfDefaultSorter>
+          <mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
         </th>
         <th>
           <mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
@@ -44,5 +44,12 @@
         <td><span class="badge badge-danger" *ngIf="pokemon.battle">Battling XYZ</span></td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>
