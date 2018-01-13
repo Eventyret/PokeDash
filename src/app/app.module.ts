@@ -21,6 +21,7 @@ import { BattlesComponent } from './components/battles/battles.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
 import { DataTableModule } from "angular2-datatable";
+import { DataFilterPipe } from './components/shared/data-filter.pipe';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DataTableModule } from "angular2-datatable";
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
-    PaginationComponent
+    PaginationComponent,
+    DataFilterPipe
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule],
   providers: [PokemonDataService],
