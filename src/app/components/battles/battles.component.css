@@ -1,11 +1,9 @@
 .block-status {
 	width: 250px;
-	height: 270px;
+	height: 280px;
 	font-size: 1.3em;
 	color: #000;
 	text-align: center;
-	padding: 0 20px;
-	margin: 20px;
 }
 
 .status {
@@ -24,6 +22,9 @@
 .action {
 	display: block;
 	font-size: 0.7em;
-	margin-top: 12px;
 	transition:  0.3s;
+}
+
+.fight-status {
+	margin-top: 20px;
 }

@@ -5,8 +5,11 @@
   <div class="card-body status">
      {{battleInput.pokemon1}}<br>
      VS<br>
-    {{battleInput.pokemon2}}<br>
+    {{battleInput.pokemon2}}
+    <div class="fight-status">
     <p *ngIf="battleInput.isActive">In a fight</p>
+    <p *ngIf="!battleInput.isActive">Ready to fight</p>
+    </div>
   </div>
   <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
 </div>

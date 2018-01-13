@@ -1,7 +1,7 @@
 <div class="section-container">
   <h2>Random Pokemon Battles</h2>
   <div class="card-deck battles">
-    <div *ngFor="let battle of battles; let i = index">
+    <div *ngFor="let battle of battles; let i = index" class="col-md">
       <app-battles [battleInput]="battle" [battleNumber]="i"></app-battles>
     
   </div>
