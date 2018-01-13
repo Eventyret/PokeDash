@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Battle } from "../../components/shared/battle";
 import { Pokemons } from "./../../components/shared/pokemons";
-import { PokemonDataService } from "./../../services/pokemon-data.service";
+import { PokemonDataService } from "./../../services/data.service";
 import * as _ from "lodash";
 
 
@@ -12,14 +12,7 @@ import * as _ from "lodash";
 })
 export class BattleStatusComponent implements OnInit {
   constructor(private battleService: PokemonDataService) {}
-  names:  any;
-  Battles = [
-    { id: 1, name: "Pokemon 1", fighting: "Pokemon 2", isActive: true },
-    { id: 2, name: "Pokemon 3", fighting: "Pokemon 4", isActive: false },
-    { id: 3, name: "Pokemon 5", fighting: "Pokemon 6", isActive: true },
-    { id: 4, name: "Pokemon 7", fighting: "Pokemon 8", isActive: false }
-  ];
-  battles: Battle[] = this.Battles;
+  battles: Battle[] = [];
 
   ngOnInit() {
     this.getFightStatus();
@@ -35,14 +28,19 @@ export class BattleStatusComponent implements OnInit {
   }
 
   randomGenerator(pokemons) {
-    let shuffledArray = _.shuffle(pokemons);
-    let pokemonBattles = _.slice(shuffledArray, 0, 8);
-    console.log(pokemonBattles)
-    this.names = pokemonBattles.map(pokemon => pokemon.Name);
-    for (let pair = 0; pair < this.names.length / 2; pair++) {
-    this.names[2 * pair], this.names[2 * pair + 1];
+    let shuffleBattleNames = _.shuffle(pokemons);
+    let pokemonsList = _.slice(shuffleBattleNames, 0, 8);
+    let randomNames = pokemonsList.map(pokemon => pokemon.Name);
+    let tempBattle = [];
+    for (let pairID = 0; pairID < 4; pairID++) {
+      this.battles.push({
+        "id": pairID,
+        "pokemon1": randomNames[2*pairID],
+        "pokemon2": randomNames[2*pairID+1],
+        "isActive": true
+      });
+      console.log(this.battles);
     }
-    console.log(this.names);
   }
   
 }

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PokemonDataService } from './pokemon-data.service';
+import { PokemonDataService } from './data.service';
 
 describe('PokemonDataService', () => {
   beforeEach(() => {

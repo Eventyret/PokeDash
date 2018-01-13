@@ -3,9 +3,9 @@
     Battle {{battleNumber +1}}
   </div>
   <div class="card-body status">
-     {{battleInput.name}}<br>
+     {{battleInput.pokemon1}}<br>
      VS<br>
-    {{battleInput.fighting}}<br>
+    {{battleInput.pokemon2}}<br>
     <p *ngIf="battleInput.isActive">In a fight</p>
   </div>
   <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>

@@ -1,6 +1,6 @@
 export interface Battle {
-	id: number;
-	name: string;
-	fighting: string;
-	isActive: boolean;
+  id: number;
+  pokemon1: string;
+  pokemon2: string;
+  isActive: boolean;
 }

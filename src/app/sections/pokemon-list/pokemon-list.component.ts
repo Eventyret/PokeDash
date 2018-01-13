@@ -1,4 +1,4 @@
-import { PokemonDataService } from './../../services/pokemon-data.service';
+import { PokemonDataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemons } from '../../components/shared/pokemons'
 import * as _ from "lodash";
