@@ -29,15 +29,14 @@ export class BattleStatusComponent implements OnInit {
 
   randomGenerator(pokemons) {
     let shuffleBattleNames = _.shuffle(pokemons);
-    let pokemonsList = _.slice(shuffleBattleNames, 0, 8);
-    let randomNames = pokemonsList.map(pokemon => pokemon.Name);
-    let tempBattle = [];
+    let pokemonList = _.slice(shuffleBattleNames, 0, 8);
+    let randomNames = pokemonList.map(pokemon => pokemon.Name);
     for (let pairID = 0; pairID < 4; pairID++) {
       this.battles.push({
-        "id": pairID,
-        "pokemon1": randomNames[2*pairID],
-        "pokemon2": randomNames[2*pairID+1],
-        "isActive": false
+        id: pairID,
+        pokemon1: randomNames[2 * pairID],
+        pokemon2: randomNames[2 * pairID + 1],
+        isActive: false
       });
     }
   }
