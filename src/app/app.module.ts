@@ -17,10 +17,8 @@ import { BarChartComponent } from './components/charts/bar-chart/bar-chart.compo
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { BattleStatusComponent } from './sections/battle-status/battle-status.component';
 import { BattlesComponent } from './components/battles/battles.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
 
 import { DataTableModule } from "angular2-datatable";
-import { DataFilterPipe } from './components/shared/data-filter.pipe';
 import { Ng2FilterPipeModule } from "ng2-filter-pipe";
 
 
@@ -36,8 +34,6 @@ import { Ng2FilterPipeModule } from "ng2-filter-pipe";
     PieChartComponent,
     BattleStatusComponent,
     BattlesComponent,
-    PaginationComponent,
-    DataFilterPipe
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), ChartsModule, HttpModule, DataTableModule, FormsModule, Ng2FilterPipeModule],
   providers: [PokemonDataService],
