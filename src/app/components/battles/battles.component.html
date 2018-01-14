@@ -7,9 +7,8 @@
      VS<br>
     {{battleInput.pokemon2}}
     <div class="fight-status">
-    <p *ngIf="battleInput.isActive">In a fight</p>
-    <p *ngIf="!battleInput.isActive">Ready to fight</p>
+      <p *ngIf="winners">{{winners[0]}}</p>
     </div>
   </div>
-  <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
+  <button class="btn btn-default action" [disabled]="isLoading" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
 </div>
