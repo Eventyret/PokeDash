@@ -1,6 +1,6 @@
 .block-status {
 	width: 250px;
-	height: 280px;
+	height: 100%;
 	font-size: 1.3em;
 	color: #000;
 	text-align: center;
@@ -20,8 +20,7 @@
 }
 
 .action {
-	display: block;
-	font-size: 0.7em;
+	font-size: 0.75em;
 	transition:  0.3s;
 }
 

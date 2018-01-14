@@ -19,6 +19,7 @@ export class BattlesComponent implements OnInit {
   isLoading = false;
   firstBattle = true;
   winners = [];
+  combatDisplay = true;
 
   ngOnInit() {
     this.setBattleStatus(this.battleInput.isActive);
@@ -36,33 +37,44 @@ export class BattlesComponent implements OnInit {
       }, 3000);
     } else {
       this.stopFighting();
-      setTimeout(() => {
-        this.battleInput.isActive = false;
-        this.color = "#ff6b6b";
-        this.buttonText = "Activate Fight";
-        this.isLoading = false;
-      }, 3000);
+      if (!this.firstBattle) {
+        setTimeout(() => {
+          this.battleInput.isActive = false;
+          this.color = "#ff6b6b";
+          this.buttonText = "Start Fight";
+          this.isLoading = false;
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          this.battleInput.isActive = false;
+          this.color = "#ff6b6b";
+          this.buttonText = "Fight Again";
+          this.isLoading = false;
+          this.combatDisplay = true;
+        }, 3000);
+      }
     }
   }
 
   fighting() {
-    this.color = "#FFCA28";
-    this.buttonText = "Fight in progress....";
+    this.color = "#F8D030";
+    this.buttonText = "Starting Fight";
     this.isLoading = true;
     this.winners = [];
+    this.combatDisplay = true;
   }
   stopFighting() {
     if (!this.firstBattle) {
-      this.color = "#FFCA28";
-      this.buttonText = "Checking Winner";
+      this.color = "#F8D030";
+      this.buttonText = "Stopping fight";
       this.isLoading = true;
-      this.firstBattle = false;
+      this.firstBattle = true;
       this.theWinner();
     } else {
-      this.color = "#FFCA28";
-      this.buttonText = "Getting Status";
+      this.color = "#F8D030";
+      this.buttonText = "Initializing...";
       this.firstBattle = false;
-      this.isLoading = true;
+      this.isLoading = false;
     }
   }
 
@@ -79,5 +91,6 @@ export class BattlesComponent implements OnInit {
         this.winners.push(battle["pokemon2"]);
       }
     });
+    this.combatDisplay = false;
   }
 }
