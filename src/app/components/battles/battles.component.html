@@ -1,15 +1,21 @@
-<div class="card mb-3 shadow block-status" [ngStyle]="{'background-color': color}">
+<div class="card col-auto shadow block-status" [ngStyle]="{'background-color': color}">
   <div class="card-header">
     Battle {{battleNumber +1}}
   </div>
+  <div *ngIf="combatDisplay;then inCombat else winner"></div>
+  
   <div class="card-body status">
-     {{battleInput.pokemon1}}<br>
-     VS<br>
+    <ng-template #inCombat>
+    {{battleInput.pokemon1}}<br> 
+    <span>VS</span>
     {{battleInput.pokemon2}}
-    <div class="fight-status">
-    <p *ngIf="battleInput.isActive">In a fight</p>
-    <p *ngIf="!battleInput.isActive">Ready to fight</p>
+    </ng-template>
+    <ng-template #winner>
+      <h2>{{winners[0]}} Wins!</h2>
+      <i class="fa fa-trophy fa-4x"></i>
+    </ng-template>
     </div>
-  </div>
-  <button class="btn btn-default action" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
+    <div class="card-footer text-center">
+      <button class="btn btn-default btn-block action" [disabled]="isLoading" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
+    </div>
 </div>
