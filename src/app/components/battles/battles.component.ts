@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 import { Battle } from '../shared/battle';
-import { map } from "rxjs/operator/map";
+import * as _ from "lodash";
 
 
 
@@ -17,11 +17,14 @@ export class BattlesComponent implements OnInit {
 
   @Input() battleInput: Battle;
   @Input() battleNumber: number;
-  winners: any[];
+  Battles: any[];
 
   ngOnInit() {
     this.setBattleStatus(this.battleInput.isActive);
+    this.Battles = _.castArray(this.battleInput)
+    this.theWinner();
   }
+
 
   setBattleStatus(isInBattle: boolean) {
     if (isInBattle) {
@@ -37,5 +40,17 @@ export class BattlesComponent implements OnInit {
 
   toggleStatus(battleStatus: boolean) {
     this.setBattleStatus(!battleStatus);
+  }
+
+    theWinner() {
+    let winners = [];
+    this.Battles.forEach(battle => {
+      let winnerNumber = Math.floor(Math.random()  *10);
+     if (winnerNumber  > 5) {
+        winners.push(battle["pokemon1"]);
+      } else {
+        winners.push(battle["pokemon2"]);
+      }
+    });
   }
 }
