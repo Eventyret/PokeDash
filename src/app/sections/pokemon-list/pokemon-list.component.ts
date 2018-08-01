@@ -1,6 +1,6 @@
-import { PokemonDataService } from './../../services/data.service';
-import { Component, OnInit } from '@angular/core';
-import { Pokemons } from '../../components/shared/pokemons'
+import { PokemonDataService } from "./../../services/data.service";
+import { Component, OnInit } from "@angular/core";
+import { Pokemons } from "../../components/shared/pokemons";
 import * as _ from "lodash";
 
 @Component({
@@ -19,12 +19,12 @@ export class PokemonListComponent implements OnInit {
   public filterQuery = "";
 
   ngOnInit() {
-    this.populateTable();
+	this.populateTable();
   }
 
   populateTable(): void {
-    this.pokemonService.getPokemons().subscribe(pokemon => {
-      this.data = pokemon.data;
-    });
+	this.pokemonService.getPokemons().subscribe(pokemon => {
+		this.data = pokemon[0].data;
+	});
   }
 }

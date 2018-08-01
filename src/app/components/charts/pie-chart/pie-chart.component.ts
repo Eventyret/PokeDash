@@ -10,12 +10,12 @@ import * as _ from "lodash";
 export class PieChartComponent implements OnInit {
   constructor(private pokeService: PokemonDataService) {}
 
-  pieChartData: number[] = [25,90, 44, 30];
+  pieChartData: number[] = [25, 90, 44, 30];
   pieChartLabels: string[] = ["Attack", "Defense", "Speed", "HP"];
   colors: any[] = [
-    {
-      backgroundColor: ["#EF5350", "#42A5F5", "#FFEE58", "#78C850"]
-    }
+	{
+		backgroundColor: ["#EF5350", "#42A5F5", "#FFEE58", "#78C850"]
+	}
   ];
 
   pieChartType = "pie";
@@ -27,34 +27,34 @@ export class PieChartComponent implements OnInit {
   pokemon: Pokemons[];
 
   ngOnInit() {
-    this.getData();
+	this.getData();
   }
 
   getData() {
-    this.pokeService.getPokemons().subscribe(res => {
-      this.pokemon = res.data;
-      this.findAverage();
-    });
+	this.pokeService.getPokemons().subscribe(res => {
+		this.pokemon = res[0].data;
+		this.findAverage();
+	});
   }
 
   findAverage() {
-    this.attack = _.meanBy(this.pokemon, function(o) {
-      return o.Attack;
-    });
-    this.defense = _.meanBy(this.pokemon, function(o) {
-      return o.Defense;
-    });
-    this.speed = _.meanBy(this.pokemon, function(o) {
-      return o.Speed;
-    });
-    this.hp = _.meanBy(this.pokemon, function(o) {
-      return o.HP;
-    });
-    this.generatePieData();
+	this.attack = _.meanBy(this.pokemon, function(o) {
+		return o.Attack;
+	});
+	this.defense = _.meanBy(this.pokemon, function(o) {
+		return o.Defense;
+	});
+	this.speed = _.meanBy(this.pokemon, function(o) {
+		return o.Speed;
+	});
+	this.hp = _.meanBy(this.pokemon, function(o) {
+		return o.HP;
+	});
+	this.generatePieData();
   }
-  generatePieData(){
-    let tempArray = [];
-    let filledArray = tempArray.push(this.attack, this.defense, this.speed, this.hp)
-    this.pieChartData = tempArray
+  generatePieData() {
+	const tempArray = [];
+	const filledArray = tempArray.push(this.attack, this.defense, this.speed, this.hp);
+	this.pieChartData = tempArray;
   }
 }
