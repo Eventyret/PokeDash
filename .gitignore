@@ -43,3 +43,4 @@ Thumbs.db
 
 src/environments/environment.ts
 .venv
+api/.env
