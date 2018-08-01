@@ -32,7 +32,7 @@ export class PieChartComponent implements OnInit {
 
   getData() {
 	this.pokeService.getPokemons().subscribe(res => {
-		this.pokemon = res[0].data;
+		this.pokemon = res.results;
 		this.findAverage();
 	});
   }

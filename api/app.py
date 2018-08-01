@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
 app.config["MONGO_URI"] = "mongodb://dbuser:FIIWhpYSO1JV8nX@ds161751.mlab.com:61751/heroku_gtwrqfln"
+CORS(app)
 
 mongo = PyMongo(app)
 

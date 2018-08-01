@@ -20,8 +20,8 @@ export class BattleStatusComponent implements OnInit {
 
   getFightStatus() {
 	this.battleService.getPokemons().subscribe(res => {
-		const pokemons = _.filter(res[0].data, function(o) {
-		return o.battle;
+		const pokemons = _.filter(res.results, function(o) {
+		return o.Battle;
 		});
 		this.randomGenerator(pokemons);
 	});

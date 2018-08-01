@@ -33,7 +33,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of mf.data">
-        <td>{{pokemon.id}}</td>
+        <td>{{pokemon.PokedexID}}</td>
         <td>{{pokemon.Name}}</td>
         <td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
         <td>{{pokemon.Attack}}</td>
@@ -41,7 +41,7 @@
         <td>{{pokemon.Speed}}</td>
         <td>{{pokemon.Generation}}</td>
         <td><span class="badge badge-warning" *ngIf="pokemon.Legendary">Legendary <i class="fa fa-star"></i></span></td>
-        <td><span class="badge badge-danger" *ngIf="pokemon.battle"><a routerLink="/battle-status">Battle Status</a></span></td>
+        <td><span class="badge badge-danger" *ngIf="pokemon.Battle"><a routerLink="/battle-status">Battle Status</a></span></td>
       </tr>
     </tbody>
     <tfoot>

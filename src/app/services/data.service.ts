@@ -1,14 +1,24 @@
 import { Injectable } from "@angular/core";
-import "rxjs/add/operator/map";
 import { HttpClient } from "@angular/common/http";
+import { throwError } from "rxjs";
 
-@Injectable()
+// new import
+import { map } from "rxjs/operators";
+import "rxjs/add/operator/catch";
+
+@Injectable({
+	providedIn: "root"
+})
 export class PokemonDataService {
 
   constructor(private http: HttpClient) { }
 
   getPokemons() {
-	return this.http.get("https://api.dehlin.info/api/1.1/tables/newPokemons/rows?limit=800").map(res => res);
+	  return this.http.get("http://localhost:5000/api")
+	  .pipe(map((data: any) => data))
+	  .catch((error: any) => {
+		  return throwError(error);
+	  })
   }
 
 }

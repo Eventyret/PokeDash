@@ -24,7 +24,7 @@ export class PokemonListComponent implements OnInit {
 
   populateTable(): void {
 	this.pokemonService.getPokemons().subscribe(pokemon => {
-		this.data = pokemon[0].data;
+		this.data = pokemon.results;
 	});
   }
 }
