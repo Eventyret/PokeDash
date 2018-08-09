@@ -41,13 +41,13 @@ body {
     padding: .5rem .75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #fff;
+    color: #fff !important;
     background-color: #007bff;
 	border: 1px solid #007bff;
 }
 .page-item.active .page-link {
     z-index: 2;
-    color: #fff;
+    color: #fff !important;
     background-color: #F01C00;
     border-color: #F01C00;
 }
@@ -55,7 +55,7 @@ body {
     visibility: hidden;
 }
 .page-link:focus, .page-link:hover {
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     background-color: #007bff;
     border-color: #007bff;

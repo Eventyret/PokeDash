@@ -1,7 +1,7 @@
 <div class="section-container">
   <h2>Pokemon List</h2>
   <table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
-    <thead class="thead-dark">
+    <thead class="thead-primary">
       <tr>
         <th>
           <mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
@@ -43,13 +43,7 @@
         <td><span class="badge badge-danger" *ngIf="pokemon.Legendary">Legendary <i class="fas fa-star"></i></span></td>
         <td><span class="badge badge-success" *ngIf="pokemon.Battle"><a routerLink="/battle">In Battle <i class="fas fa-gamepad"></i></a></span></td>
       </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4">
-          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-        </td>
-      </tr>
-    </tfoot>
+	</tbody>
+	<mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
   </table>
 </div>
