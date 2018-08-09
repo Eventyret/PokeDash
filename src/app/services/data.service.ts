@@ -14,7 +14,7 @@ export class PokemonDataService {
   constructor(private http: HttpClient) { }
 
   getPokemons() {
-	  return this.http.get("http://localhost:5000/api")
+	  return this.http.get("https://pokedash.herokuapp.com/api")
 	  .pipe(map((data: any) => data))
 	  .catch((error: any) => {
 		  return throwError(error);
