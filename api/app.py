@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 #from dotenv import load_dotenv
 from flask_pymongo import PyMongo
 from flask_cors import CORS
@@ -8,7 +8,7 @@ from flask_cors import CORS
 # refers to application_top
 #APP_ROOT = os.path.join(os.path.dirname(__file__), '.')
 #dotenv_path = os.path.join(APP_ROOT, '.env')
-#load_dotenv(dotenv_path)
+# load_dotenv(dotenv_path)
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
@@ -17,6 +17,11 @@ app.config["MONGO_URI"] = SECRET_URI
 CORS(app)
 
 mongo = PyMongo(app)
+
+
+@app.route("/", defaults={'path': ''})
+def lets_redirect():
+    return redirect("/api", code=302)
 
 
 @app.route("/api", methods=["GET"])
@@ -30,5 +35,10 @@ def get_all_pokemons():
     return jsonify({"results": output})
 
 
+@app.route('/<path:path>')
+def catch_all(path):
+    return redirect("/api", code=302)
+
+
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run()
