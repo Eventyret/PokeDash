@@ -2,8 +2,8 @@
 	<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"  [ngbCollapse]="isCollapsed">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a routerLink="profiles" class="nav-link" ngbTooltip="List of Pokémon's" placement="bottom">
-						<i class="fas fa-clipboard-list"></i> List of Pokémon's
+				<a routerLink="/list" class="nav-link" ngbTooltip="List of Pokémon's" placement="bottom">
+						List of Pokémon's <i class="fas fa-clipboard-list"></i>
 				</a>
 			</li>
 
@@ -18,7 +18,7 @@
 	<div class="navbar-collapse collapse w-100 order-3 dual-collapse2" [ngbCollapse]="isCollapsed">
 		<ul class="navbar-nav ml-auto">
 				<li class="nav-item" ngbTooltip="Pokémon Battles" placement="bottom">
-						<a class="nav-link" routerLink="battle-status">
+						<a class="nav-link" routerLink="battle">
 								<i class="fas fa-gamepad"></i> Pokémon Battles
 						</a>
 					</li>

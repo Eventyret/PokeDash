@@ -21,11 +21,11 @@ import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
 
 export const appRoutes: Routes = [
-	{ path: "dashboard", component: DashboardComponent },
+	{ path: "", component: DashboardComponent },
 	{ path: "list", component: PokemonListComponent },
-	{ path: "battle-status", component: BattleStatusComponent },
+	{ path: "battle", component: BattleStatusComponent },
 
-	{ path: "", redirectTo: "/dashboard", pathMatch: "full" }
+	{ path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({
