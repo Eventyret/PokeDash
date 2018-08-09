@@ -1,17 +1,22 @@
-.logo {
-	color: #fff;
-	font-weight: 600;
-	font-size: 1.4em;
+.navbar-toggler {
+	border-color: transparent;
+	&:focus {
+		outline: none;
+	}
 }
 
-.logo-left {
-	background-color:  #ff6b6b;
-	padding: 3px 5px 3px 8px;
-	border-radius: 4px;
+.navbar,
+.nav-link,
+.nav-item,
+.fa-bars,
+.navbar-brand {
+	color:  #fff;
 }
 
-.logo-right {
-	padding: 3px 8px 3px 3px;
-	margin-left: -5px;
-	border-radius: 4px;
+.nav-link {
+	cursor: pointer;
+}
+li > a > .fas {
+	margin-top: 3px;
+	font-size: 1.85rem;
 }

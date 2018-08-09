@@ -15,9 +15,9 @@ import { BarChartComponent } from "./components/charts/bar-chart/bar-chart.compo
 import { PieChartComponent } from "./components/charts/pie-chart/pie-chart.component";
 import { BattleStatusComponent } from "./sections/battle-status/battle-status.component";
 import { BattlesComponent } from "./components/battles/battles.component";
-
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from "angular2-datatable";
-import { Ng2FilterPipeModule } from "ng2-filter-pipe";
+import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
 
 export const appRoutes: Routes = [
@@ -47,7 +47,9 @@ export const appRoutes: Routes = [
 		HttpClientModule,
 		DataTableModule,
 		FormsModule,
-		Ng2FilterPipeModule],
+		FilterPipeModule,
+		NgbModule.forRoot()
+	],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]
 })

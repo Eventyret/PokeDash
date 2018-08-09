@@ -1,4 +1,27 @@
-<a class="navbar-brand" href="#">
-  <span class="logo logo-left">Pokemon</span>
-  <span class="logo logo-right">Dashboard</span>
-</a>
+<nav class="navbar navbar-expand-md bg-primary sticky-top">
+	<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"  [ngbCollapse]="isCollapsed">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a routerLink="profiles" class="nav-link" ngbTooltip="List of Pokémon's" placement="bottom">
+						<i class="fas fa-clipboard-list"></i> List of Pokémon's
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="mx-auto order-0">
+		<a routerLink="/" class="navbar-brand"><i class="fas fa-chart-pie"></i> <span class="logo-left">Poké</span><span class="logo-right"> Dash</span></a>
+		<button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="mobileNav">
+			<i class="fas fa-bars"></i>
+		</button>
+	</div>
+	<div class="navbar-collapse collapse w-100 order-3 dual-collapse2" [ngbCollapse]="isCollapsed">
+		<ul class="navbar-nav ml-auto">
+				<li class="nav-item" ngbTooltip="Pokémon Battles" placement="bottom">
+						<a class="nav-link" routerLink="battle-status">
+								<i class="fas fa-gamepad"></i> Pokémon Battles
+						</a>
+					</li>
+		</ul>
+	</div>
+</nav>
