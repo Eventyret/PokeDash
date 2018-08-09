@@ -18,20 +18,16 @@ body {
 /* Charts styling */
 
 .card-theme {
-	background-color: #191F26;
+	background-color: #fff;
 	border: none;
 	border-radius: 2px;
 }
 
 .card-header-theme {
-	color: #eee;
+	color: #fff;
 	border-top-right-radius: 8px;
 	border-top-left-radius: 8px;
 	padding: 12px;
-}
-
-.card-body-theme {
-	background-color: #494F56;
 }
 
 .cards {
@@ -45,27 +41,27 @@ body {
     padding: .5rem .75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #007bff;
-    background-color: #212529;
-    border: 1px solid #212529;
+    color: #fff;
+    background-color: #007bff;
+	border: 1px solid #007bff;
 }
 .page-item.active .page-link {
     z-index: 2;
     color: #fff;
-    background-color: #ff6b6b;
-    border-color: #ff6b6b;
+    background-color: #F01C00;
+    border-color: #F01C00;
 }
 .page-item.disabled .page-link {
     visibility: hidden;
 }
 .page-link:focus, .page-link:hover {
-    color: #0056b3;
+    color: #fff;
     text-decoration: none;
-    background-color: #212529;
-    border-color: #212529;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 .badge-danger {
-	background-color: #ff6b6b;
+	background-color: #F01C00;
 }
 .col-auto {
     -ms-flex: 0 0 auto;

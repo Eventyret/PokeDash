@@ -14,7 +14,7 @@ export class PieChartComponent implements OnInit {
   pieChartLabels: string[] = ["Attack", "Defense", "Speed", "HP"];
   colors: any[] = [
 	{
-		backgroundColor: ["#EF5350", "#42A5F5", "#FFEE58", "#78C850"]
+		backgroundColor: ["#F62D14", "#42A5F5", "#FFCB05", "#78C850"]
 	}
   ];
 

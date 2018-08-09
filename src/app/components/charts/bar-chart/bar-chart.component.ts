@@ -42,10 +42,10 @@ export class BarChartComponent implements OnInit {
   barChartColors: any[] = [
 	{
 		backgroundColor: [
-		"#EF5350",
+		"#F62D14",
 		"#705848",
 		"#7038F8",
-		"#F8D030",
+		"#FFCB05",
 		"#EE99AC",
 		"#C03028",
 		"#F08030",
