@@ -1,14 +1,8 @@
 import os
 from flask import Flask, jsonify, request, redirect
-#from dotenv import load_dotenv
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 
-# load dotenv in the base root
-# refers to application_top
-#APP_ROOT = os.path.join(os.path.dirname(__file__), '.')
-#dotenv_path = os.path.join(APP_ROOT, '.env')
-# load_dotenv(dotenv_path)
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
