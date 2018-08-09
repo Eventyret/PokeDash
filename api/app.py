@@ -13,7 +13,7 @@ CORS(app)
 mongo = PyMongo(app)
 
 
-@app.route("/", defaults={'path': ''})
+@app.route("/")
 def lets_redirect():
     return redirect("/api", code=302)
 
@@ -29,9 +29,9 @@ def get_all_pokemons():
     return jsonify({"results": output})
 
 
-@app.route('/<path:path>')
-def catch_all(path):
-    return redirect("/api", code=302)
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect("/api")
 
 
 if __name__ == "__main__":
