@@ -10,15 +10,14 @@ import "rxjs/add/operator/catch";
 	providedIn: "root"
 })
 export class PokemonDataService {
+	constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getPokemons() {
-	  return this.http.get("https://pokedash.herokuapp.com/api")
-	  .pipe(map((data: any) => data))
-	  .catch((error: any) => {
-		  return throwError(error);
-	  })
-  }
-
+	getPokemons() {
+		return this.http
+			.get("https://pokedash.herokuapp.com/api")
+			.pipe(map((data: any) => data))
+			.catch((error: any) => {
+				return throwError(error);
+			});
+	}
 }

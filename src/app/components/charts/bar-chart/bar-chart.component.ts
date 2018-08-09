@@ -71,7 +71,6 @@ export class BarChartComponent implements OnInit {
   getData() {
 	this.pokeService.getPokemons().subscribe(res => {
 		const data = res.results;
-		console.log(data);
 		this.sortedData = _.countBy(data, "Type1");
 		this.mapLabels();
 	});
