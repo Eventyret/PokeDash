@@ -38,18 +38,18 @@ export class PieChartComponent implements OnInit {
   }
 
   findAverage() {
-	this.attack = _.meanBy(this.pokemon, function(o) {
+	this.attack = _.round(_.meanBy(this.pokemon, function(o) {
 		return o.Attack;
-	});
-	this.defense = _.meanBy(this.pokemon, function(o) {
+	}), 2);
+	this.defense = _.round(_.meanBy(this.pokemon, function(o) {
 		return o.Defense;
-	});
-	this.speed = _.meanBy(this.pokemon, function(o) {
+	}), 2);
+	this.speed = _.round(_.meanBy(this.pokemon, function(o) {
 		return o.Speed;
-	});
-	this.hp = _.meanBy(this.pokemon, function(o) {
+	}), 2);
+	this.hp = _.round(_.meanBy(this.pokemon, function(o) {
 		return o.HP;
-	});
+	}), 2);
 	this.generatePieData();
   }
   generatePieData() {
