@@ -9,8 +9,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { DashboardComponent } from "./sections/dashboard/dashboard.component";
 import { PokemonListComponent } from "./sections/pokemon-list/pokemon-list.component";
-import { appRoutes } from "../routes";
-
+import { Routes } from "@angular/router";
 import { ChartsModule } from "ng2-charts";
 import { BarChartComponent } from "./components/charts/bar-chart/bar-chart.component";
 import { PieChartComponent } from "./components/charts/pie-chart/pie-chart.component";
@@ -20,6 +19,14 @@ import { BattlesComponent } from "./components/battles/battles.component";
 import { DataTableModule } from "angular2-datatable";
 import { Ng2FilterPipeModule } from "ng2-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
+
+export const appRoutes: Routes = [
+	{ path: "dashboard", component: DashboardComponent },
+	{ path: "list", component: PokemonListComponent },
+	{ path: "battle-status", component: BattleStatusComponent },
+
+	{ path: "", redirectTo: "/dashboard", pathMatch: "full" }
+];
 
 @NgModule({
 	declarations: [
@@ -40,8 +47,7 @@ import { HttpClientModule } from "@angular/common/http";
 		HttpClientModule,
 		DataTableModule,
 		FormsModule,
-		 Ng2FilterPipeModule
-		],
+		Ng2FilterPipeModule],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]
 })

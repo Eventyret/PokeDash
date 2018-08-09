@@ -8,7 +8,7 @@ import * as _ from "lodash";
 @Component({
   selector: "app-battle-status",
   templateUrl: "./battle-status.component.html",
-  styleUrls: ["./battle-status.component.css"]
+  styleUrls: ["./battle-status.component.scss"]
 })
 export class BattleStatusComponent implements OnInit {
   constructor(private battleService: PokemonDataService) {}

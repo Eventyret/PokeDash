@@ -6,7 +6,7 @@ import * as _ from "lodash";
 @Component({
   selector: "app-pokemon-list",
   templateUrl: "./pokemon-list.component.html",
-  styleUrls: ["./pokemon-list.component.css"]
+  styleUrls: ["./pokemon-list.component.scss"]
 })
 export class PokemonListComponent implements OnInit {
   constructor(private pokemonService: PokemonDataService) {}

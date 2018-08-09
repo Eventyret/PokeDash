@@ -5,7 +5,7 @@ import * as _ from "lodash";
 @Component({
   selector: "app-battles",
   templateUrl: "./battles.component.html",
-  styleUrls: ["./battles.component.css"]
+  styleUrls: ["./battles.component.scss"]
 })
 export class BattlesComponent implements OnInit {
   constructor() {}
