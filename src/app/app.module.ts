@@ -19,6 +19,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from "angular2-datatable";
 import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 export const appRoutes: Routes = [
 	{ path: "", component: DashboardComponent },
@@ -48,7 +49,8 @@ export const appRoutes: Routes = [
 		DataTableModule,
 		FormsModule,
 		FilterPipeModule,
-		NgbModule.forRoot()
+		NgbModule.forRoot(),
+		NgxSpinnerModule
 	],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]
