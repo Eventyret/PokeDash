@@ -1,10 +1,26 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { PokemonDataService } from "./services/data.service";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+	selector: "app-root",
+	templateUrl: "./app.component.html",
+	styleUrls: ["./app.component.scss"]
 })
-export class AppComponent {
-  notFound = false;
+export class AppComponent implements OnInit {
+	loader = true;
+	constructor(private pokemonService: PokemonDataService) {}
+
+	ngOnInit() {
+		this.pokemonService.getPokemons().subscribe(
+			data => {
+				localStorage.setItem("pokemons", JSON.stringify(data));
+			},
+			error => {
+				console.log(error);
+			},
+			() => {
+				this.loader = true;
+			}
+		);
+	}
 }
