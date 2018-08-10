@@ -15,10 +15,8 @@ export class BattlesComponent implements OnInit {
 	color: string;
 	buttonText: string;
 
-	@Input()
-	battleInput: Battle;
-	@Input()
-	battleNumber: number;
+	@Input() battleInput: Battle;
+	@Input() battleNumber: number;
 	Battles: any[];
 	isLoading = false;
 	firstBattle = true;
@@ -116,7 +114,7 @@ export class BattlesComponent implements OnInit {
 				console.log(error);
 			},
 			() => {
-				this.stopFighting();
+				this.theWinner();
 			}
 		);
 	}
