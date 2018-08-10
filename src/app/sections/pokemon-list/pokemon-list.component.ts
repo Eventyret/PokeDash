@@ -12,7 +12,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class PokemonListComponent implements OnInit {
 	constructor(private pokemonService: PokemonDataService, private spinner: NgxSpinnerService) {}
 
-	public data: any[];
+	public data: any[] = [];
 	public battleing;
 	public sortBy = "Name";
 	public sortOrder = "asc";
@@ -25,22 +25,17 @@ export class PokemonListComponent implements OnInit {
 	}
 
 	populateTable(): void {
-		const localStorageCheck = localStorage.getItem("pokemons");
-		if (localStorageCheck) {
-			this.data.push(localStorage.getItem("pokemons"));
-			this.spinner.hide();
-		} else {
-			this.pokemonService.getPokemons().subscribe(
-				pokemon => {
-					this.data = pokemon.results;
-				},
-				error => {
-					console.log(error);
-				},
-				() => {
-					this.spinner.hide();
-				}
-			);
-		}
+		this.pokemonService.getPokemons().subscribe(
+			pokemon => {
+				this.data = pokemon.results;
+			},
+			error => {
+				console.log(error);
+			},
+			() => {
+				this.spinner.hide();
+			}
+		);
 	}
 }
+

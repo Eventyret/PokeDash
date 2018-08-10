@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 				console.log(error);
 			},
 			() => {
-				this.loader = true;
+				this.loader = false;
 			}
 		);
 	}
