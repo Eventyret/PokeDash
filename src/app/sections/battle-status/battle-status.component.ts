@@ -39,6 +39,7 @@ export class BattleStatusComponent implements OnInit {
 		isActive: false
 		});
 	}
+	console.log(this.battles);
   }
 
 }
