@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.pokemonService.getPokemons().subscribe(
 			data => {
-				localStorage.setItem("pokemons", JSON.stringify(data));
+				sessionStorage.setItem("pokemons", JSON.stringify(data));
 			},
 			error => {
 				console.log(error);
