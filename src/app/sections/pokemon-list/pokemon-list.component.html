@@ -11,7 +11,7 @@
 				<thead class="thead-primary">
 					<tr>
 						<th>
-							<mfDefaultSorter by="Sprite">Pokedex Number</mfDefaultSorter>
+							<mfDefaultSorter by="Sprite"></mfDefaultSorter>
 						</th>
 						<th>
 							<mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
@@ -47,7 +47,7 @@
 						<td><img src="{{pokemon.Sprite}}"></td>
 						<td>{{pokemon.PokedexID}}</td>
 						<td>{{pokemon.Name}}</td>
-						<td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
+						<td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2 && pokemon.Type2 !== 'NULL'"> / {{pokemon.Type2}}</span></td>
 						<td>{{pokemon.Attack}}</td>
 						<td>{{pokemon.Defense}}</td>
 						<td>{{pokemon.Speed}}</td>

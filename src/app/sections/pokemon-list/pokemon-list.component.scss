@@ -5,14 +5,25 @@ a {
 a:hover {
 	text-decoration: none;
 }
-.table-inverse td, .table-inverse th, .table-inverse thead th {
-    border-color: #007bff;
+.table-inverse td,
+.table-inverse th,
+.table-inverse thead th {
+	border-color: #007bff;
 }
 .badge-danger {
 	color: #fff;
 }
 
 img {
-	height: 48px;
-    width: 48px;
+	transition: transform 0.2s;
+	height: 64px;
+	width: 64px;
+}
+
+.table-hover tbody tr {
+	&:hover {
+		background-color: rgba(0, 123, 255, 0.8);
+		color: #fff;
+		font-weight: 600;
+	}
 }
