@@ -2,28 +2,6 @@
 	min-height: 779px;
 }
 
-.status {
-	display: block;
-	transition: 0.3;
-}
-
-.name {
-	padding: 5px;
-	font-size: 0.7em;
-	display: block;
-	font-family: monospace;
-	transition: 0.3;
-}
-
-.action {
-	font-size: 0.75em;
-	transition: 0.3s;
-}
-
-.fight-status {
-	margin-top: 20px;
-}
-
 .card-header,
 .card-body,
 .status {
