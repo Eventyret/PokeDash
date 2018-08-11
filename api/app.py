@@ -9,7 +9,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
 app.config["MONGO_URI"] = SECRET_URI
 CORS(app)
-
 mongo = PyMongo(app)
 
 
