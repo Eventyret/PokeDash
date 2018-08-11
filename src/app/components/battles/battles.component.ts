@@ -91,7 +91,7 @@ export class BattlesComponent implements OnInit {
 	theWinner() {
 		this.Battles.forEach(battle => {
 			const winnerNumber = Math.floor(Math.random() * 10);
-			console.log(battle);:
+			console.log(battle);
 			if (winnerNumber >= 5) {
 				this.winners.push(battle["pokemon1"]);
 				this.winners.push(battle["sprite1"]);
