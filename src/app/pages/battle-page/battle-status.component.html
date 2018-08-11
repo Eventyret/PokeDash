@@ -1,10 +1,10 @@
-<a (click)="refreshMatch()" class="btn btn-primary btn-lg text-white float-right">More Fights</a>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12 text-center">
-			<h2>Random Pokemon Battles <i class="fas fa-question-circle"></i></h2>
-			<div class="card-deck battles">
-				<div *ngFor="let battle of battles; let i = index" class="col-auto">
+			<h2>Random Pokemon Battles <i class="fas fa-question-circle" (click)="openHelp()" placement="right" ngbTooltip="More information"></i></h2>
+			<a (click)="refreshMatch()" class="btn btn-primary btn-lg text-white">More Fights</a>
+			<div class="battles">
+				<div *ngFor="let battle of battles; let i = index" class="col item">
 					<app-battles [battleInput]="battle" [battleNumber]="i"></app-battles>
 				</div>
 			</div>

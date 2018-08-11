@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Battle } from "../../shared/models/battle";
-import { Pokemons } from "../../shared/models/pokemons";
 import { PokemonDataService } from "../../services/data.service";
 import * as _ from "lodash";
+import { BattleHelpComponent } from "./components/modals/battle-help/battle-help.component";
+import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
 	selector: "app-battle-status",
@@ -10,7 +11,7 @@ import * as _ from "lodash";
 	styleUrls: ["./battle-status.component.scss"]
 })
 export class BattleStatusComponent implements OnInit {
-	constructor(private battleService: PokemonDataService) {}
+	constructor(private battleService: PokemonDataService, private modalService: NgbModal) {}
 	battles: Battle[] = [];
 	pokemonList: any;
 
@@ -29,6 +30,13 @@ export class BattleStatusComponent implements OnInit {
 
 	refreshMatch() {
 		this.randomGenerator(this.pokemonList);
+	}
+
+	openHelp() {
+		const modalRef = this.modalService.open(BattleHelpComponent, {
+			centered: true,
+			size: "lg"
+		});
 	}
 
 	randomGenerator(pokemons) {
