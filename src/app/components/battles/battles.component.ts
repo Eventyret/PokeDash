@@ -23,10 +23,12 @@ export class BattlesComponent implements OnInit {
 	winners = [];
 	combatDisplay = true;
 	countdownText = 0;
+	randomColor: string;
 
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
 		this.Battles = _.castArray(this.battleInput);
+		this.randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 	}
 
 	setBattleStatus(isInBattle: boolean) {
@@ -34,7 +36,7 @@ export class BattlesComponent implements OnInit {
 			this.fighting();
 			setTimeout(() => {
 				this.battleInput.isActive = true;
-				this.color = "#66BB6A";
+				this.color = "#5EE31C";
 				this.buttonText = "Stop Fight";
 				this.isLoading = false;
 				this.countDown();
@@ -61,7 +63,7 @@ export class BattlesComponent implements OnInit {
 	}
 
 	fighting() {
-		this.color = "#4CBF46";
+		this.color = "#FFCB05";
 		this.buttonText = "Starting Fight";
 		this.isLoading = true;
 		this.winners = [];
@@ -69,13 +71,13 @@ export class BattlesComponent implements OnInit {
 	}
 	stopFighting() {
 		if (!this.firstBattle) {
-			this.color = "#4CBF46";
+			this.color = "#FFCB05";
 			this.buttonText = "Stopping fight";
 			this.isLoading = true;
 			this.firstBattle = true;
 			this.theWinner();
 		} else {
-			this.color = "#4CBF46";
+			this.color = "#FFCB05";
 			this.buttonText = "Initializing...";
 			this.firstBattle = false;
 			this.isLoading = false;
@@ -89,13 +91,17 @@ export class BattlesComponent implements OnInit {
 	theWinner() {
 		this.Battles.forEach(battle => {
 			const winnerNumber = Math.floor(Math.random() * 10);
+			console.log(battle);:
 			if (winnerNumber >= 5) {
 				this.winners.push(battle["pokemon1"]);
+				this.winners.push(battle["sprite1"]);
 			} else {
 				this.winners.push(battle["pokemon2"]);
+				this.winners.push(battle["sprite2"]);
 			}
 		});
 		this.combatDisplay = false;
+		this.stopFighting();
 	}
 
 	countDown() {
