@@ -1,27 +1,19 @@
-<nav class="navbar navbar-expand-md bg-primary sticky-top">
-	<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"  [ngbCollapse]="isCollapsed">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a routerLink="/list" class="nav-link" ngbTooltip="List of Pokémon's" placement="bottom">
-						List of Pokémon's <i class="fas fa-clipboard-list"></i>
-				</a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary d-block d-sm-none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-text text-white">PokéDash</span>
+    <div class="navbar-collapse collapse" id="mobileNav">
+        <ul class="navbar-nav abs-center-x">
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/">Pokémon Stats <i class="fas fa-chart-pie"></i></a>
 			</li>
-
-		</ul>
-	</div>
-	<div class="mx-auto order-0">
-		<a routerLink="/" class="navbar-brand"><i class="fas fa-chart-pie"></i> <span class="logo-left">Poké</span><span class="logo-right"> Dash</span></a>
-		<button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="mobileNav">
-			<i class="fas fa-bars"></i>
-		</button>
-	</div>
-	<div class="navbar-collapse collapse w-100 order-3 dual-collapse2" [ngbCollapse]="isCollapsed">
-		<ul class="navbar-nav ml-auto">
-				<li class="nav-item" ngbTooltip="Pokémon Battles" placement="bottom">
-						<a class="nav-link" routerLink="battle">
-								<i class="fas fa-gamepad"></i> Pokémon Battles
-						</a>
-					</li>
-		</ul>
-	</div>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/list">List of Pokémon's <i class="fas fa-clipboard-list"></i></a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/battle">Pokémon Battle <i class="fas fa-gamepad"></i></a>
+			</li>
+        </ul>
+    </div>
 </nav>
