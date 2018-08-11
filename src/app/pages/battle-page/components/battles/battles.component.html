@@ -1,19 +1,24 @@
-<div class="card col shadow block-status" [ngStyle]="{'background-color': color}">
+<div class="card" [style.background-color]="color">
 	<div class="card-header">
-		Battle {{battleNumber +1}} <i class="fas fa-star"></i>
+		<h3>Battle {{battleNumber +1}} <i class="fas fa-star"></i></h3>
 	</div>
 	<div *ngIf="combatDisplay;then inCombat else winner"></div>
-
-	<div class="card-body status">
+	<div class="card-body">
 		<ng-template #inCombat>
-			<br>{{battleInput.pokemon1}}<br>
+			<br>
+			<h3 class="card-title">{{battleInput.pokemon1}}</h3>
+			<br>
 			<img src="{{battleInput?.sprite1}}" class="img-fluid"><br>
-			<h1 class="vs"><span class="vs-left">V</span><span class="vs-right">S</span></h1>
+			<div class="display-3">
+				<span class="vs-left">V</span>
+				<span class="vs-right">S</span>
+			</div>
 			<br>
-			<img src="{{battleInput?.sprite2}}" class="img-fluid"><br> {{battleInput.pokemon2}}
+			<img src="{{battleInput?.sprite2}}" class="img-fluid"><br>
+			<h3 class="card-title">{{battleInput.pokemon2}}</h3>
 			<br>
-
-			<span *ngIf="countdownText !=0">{{countdownText}}</span>
+			
+			<h5 *ngIf="countdownText !=0">{{countdownText}}</h5>
 		</ng-template>
 		<ng-template #winner><br>
 			<img src="{{winners[1]}}" alt="{{winners[0]}}" class="img-fluid">
@@ -21,7 +26,7 @@
 			<img src="https://media1.giphy.com/media/3ohhwJPSL00H2r6Rhe/giphy.gif" class="img-fluid">
 		</ng-template>
 	</div>
-	<div class="card-footer text-center">
-		<button class="btn btn-default btn-block action" [disabled]="isLoading" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
+	<div class="card-footer">
+		<button class="btn btn-primary" [disabled]="isLoading" (click)="toggleStatus(battleInput.isActive)">{{buttonText}}</button>
 	</div>
 </div>

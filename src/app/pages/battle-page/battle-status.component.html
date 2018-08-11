@@ -2,11 +2,16 @@
 	<div class="row">
 		<div class="col-sm-12 text-center">
 			<h2>Random Pokemon Battles <i class="fas fa-question-circle" (click)="openHelp()" placement="right" ngbTooltip="More information"></i></h2>
-			<a (click)="refreshMatch()" class="btn btn-primary btn-lg text-white">More Fights</a>
-			<div class="battles">
-				<div *ngFor="let battle of battles; let i = index" class="col item">
+			<div class="card-deck battles">
+				<div *ngFor="let battle of battles; let i = index" class="col-sm-12 col-md-6 col-lg-3 item">
 					<app-battles [battleInput]="battle" [battleNumber]="i"></app-battles>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+				<a (click)="refreshMatch()" class="btn btn-primary btn-lg text-white mt-3">Load More Fights</a>
+		</div>
+	</div>
+</div>
