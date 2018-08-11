@@ -6,7 +6,7 @@
 	<div class="card-body">
 		<ng-template #inCombat>
 			<br>
-			<h3 class="card-title">{{battleInput.pokemon1}}</h3>
+			<h3 class="card-title text-white">{{battleInput.pokemon1}}</h3>
 			<br>
 			<img src="{{battleInput?.sprite1}}" class="img-fluid"><br>
 			<div class="display-3">
@@ -17,8 +17,8 @@
 			<img src="{{battleInput?.sprite2}}" class="img-fluid"><br>
 			<h3 class="card-title">{{battleInput.pokemon2}}</h3>
 			<br>
-			
-			<h5 *ngIf="countdownText !=0">{{countdownText}}</h5>
+
+			<h5 *ngIf="countdownText !=0 && countdownText !=5">{{countdownText}}</h5>
 		</ng-template>
 		<ng-template #winner><br>
 			<img src="{{winners[1]}}" alt="{{winners[0]}}" class="img-fluid">
