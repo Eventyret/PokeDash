@@ -1,55 +1,64 @@
-<div class="section-container">
-  <h2>Pokemon List</h2>
-  <table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
-    <thead class="thead-dark">
-      <tr>
-        <th>
-          <mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Name">Name</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Type1">Type</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Attack">Attack</mfDefaultSorter></th>
-        <th>
-          <mfDefaultSorter by="Defense">Defense</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Speed">Speed</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pokemon of mf.data">
-        <td>{{pokemon.PokedexID}}</td>
-        <td>{{pokemon.Name}}</td>
-        <td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
-        <td>{{pokemon.Attack}}</td>
-        <td>{{pokemon.Defense}}</td>
-        <td>{{pokemon.Speed}}</td>
-        <td>{{pokemon.Generation}}</td>
-        <td><span class="badge badge-warning" *ngIf="pokemon.Legendary">Legendary <i class="fa fa-star"></i></span></td>
-        <td><span class="badge badge-danger" *ngIf="pokemon.Battle"><a routerLink="/battle-status">Battle Status</a></span></td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4">
-          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100,200]"></mfBootstrapPaginator>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+<ngx-spinner bdColor="rgb(255,255,255)" size="large" color="#007bff" type="timer"></ngx-spinner>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-6">
+			<h2>Pokemon List</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+				<thead class="thead-primary">
+					<tr>
+						<th>
+							<mfDefaultSorter by="Sprite"></mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Name">Name</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Type1">Type</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Attack">Attack</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Defense">Defense</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Speed">Speed</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
+						</th>
+						<th>
+							<mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let pokemon of mf.data">
+						<td><img src="{{pokemon.Sprite}}"></td>
+						<td>{{pokemon.PokedexID}}</td>
+						<td>{{pokemon.Name}}</td>
+						<td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2 && pokemon.Type2 !== 'NULL'"> / {{pokemon.Type2}}</span></td>
+						<td>{{pokemon.Attack}}</td>
+						<td>{{pokemon.Defense}}</td>
+						<td>{{pokemon.Speed}}</td>
+						<td>{{pokemon.Generation}}</td>
+						<td><span class="badge badge-danger" *ngIf="pokemon.Legendary">Legendary <i class="fas fa-star"></i></span></td>
+						<td><span class="badge badge-success" *ngIf="pokemon.Battle"><a routerLink="/battle">In Battle <i class="fas fa-gamepad"></i></a></span></td>
+					</tr>
+				</tbody>
+				<mfBootstrapPaginator></mfBootstrapPaginator>
+			</table>
+
+		</div>
+	</div>
 </div>

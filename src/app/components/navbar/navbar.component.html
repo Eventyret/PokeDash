@@ -1,4 +1,19 @@
-<a class="navbar-brand" href="#">
-  <span class="logo logo-left">Pokemon</span>
-  <span class="logo logo-right">Dashboard</span>
-</a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary d-block d-md-none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-text text-white">PokéDash</span>
+    <div class="navbar-collapse collapse" id="mobileNav">
+        <ul class="navbar-nav abs-center-x">
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/">Pokémon Stats <i class="fas fa-chart-pie"></i></a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/list">List of Pokémon's <i class="fas fa-clipboard-list"></i></a>
+			</li>
+            <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/battle">Pokémon Battle <i class="fas fa-gamepad"></i></a>
+			</li>
+        </ul>
+    </div>
+</nav>

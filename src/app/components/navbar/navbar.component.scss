@@ -1,0 +1,22 @@
+.navbar-toggler {
+	border-color: transparent;
+	&:focus {
+		outline: none;
+	}
+}
+
+.navbar,
+.nav-link,
+.nav-item,
+.fa-bars,
+.navbar-brand {
+	color:  #fff;
+}
+
+.nav-link {
+	cursor: pointer;
+}
+li > a > .fas {
+	margin-top: 3px;
+	font-size: 1.85rem;
+}

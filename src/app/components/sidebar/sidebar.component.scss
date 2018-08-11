@@ -1,0 +1,8 @@
+.list-group-item-action {
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		color: #fff;
+		background-color: #ff1a1a;
+	}
+}

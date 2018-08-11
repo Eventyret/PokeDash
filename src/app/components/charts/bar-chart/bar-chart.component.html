@@ -1,10 +1,6 @@
+<ngx-spinner bdColor="rgb(255,255,255)" size="large" color="#007bff" type="timer"></ngx-spinner>
 <div class="chart">
-  <canvas baseChart *ngIf="barChartData && barChartData.length > 0"
-    [datasets]="barChartData" 
-    [labels]="barChartLabels" 
-    [options]="barChartOptions"
-    [legend]="barChartLegend" 
-    [colors]="barChartColors"
-    [chartType]="barChartType">
-  </canvas>
+	<canvas baseChart *ngIf="barChartData && barChartData.length > 0" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+	 [legend]="barChartLegend" [colors]="barChartColors" [chartType]="barChartType">
+	</canvas>
 </div>

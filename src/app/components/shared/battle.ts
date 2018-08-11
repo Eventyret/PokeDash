@@ -3,4 +3,6 @@ export interface Battle {
   pokemon1: string;
   pokemon2: string;
   isActive: boolean;
+  sprite1?: string;
+  sprite2?: string;
 }

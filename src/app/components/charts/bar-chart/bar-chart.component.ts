@@ -1,14 +1,15 @@
 import { PokemonDataService } from "./../../../services/data.service";
 import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-bar-chart",
   templateUrl: "./bar-chart.component.html",
-  styleUrls: ["./bar-chart.component.css"]
+  styleUrls: ["./bar-chart.component.scss"]
 })
 export class BarChartComponent implements OnInit {
-  constructor(private pokeService: PokemonDataService) {}
+  constructor(private pokeService: PokemonDataService, private spinner: NgxSpinnerService) {}
   public sortedData: any;
   // Set empty data due chartJS requires this on render, this will be populated later
   public barChartData: any[] = [{ data: [] }];
@@ -42,10 +43,10 @@ export class BarChartComponent implements OnInit {
   barChartColors: any[] = [
 	{
 		backgroundColor: [
-		"#EF5350",
+		"#F62D14",
 		"#705848",
 		"#7038F8",
-		"#F8D030",
+		"#FFCB05",
 		"#EE99AC",
 		"#C03028",
 		"#F08030",
@@ -65,6 +66,7 @@ export class BarChartComponent implements OnInit {
   ];
 
   ngOnInit() {
+	this.spinner.show();
 	this.getData();
   }
 
@@ -73,7 +75,12 @@ export class BarChartComponent implements OnInit {
 		const data = res.results;
 		this.sortedData = _.countBy(data, "Type1");
 		this.mapLabels();
-	});
+	}, error => {
+		console.log(error);
+	},
+() => {
+	this.spinner.hide();
+});
   }
 
   mapLabels() {

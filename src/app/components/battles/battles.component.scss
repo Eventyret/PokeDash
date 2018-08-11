@@ -4,6 +4,7 @@
 	font-size: 1.3em;
 	color: #000;
 	text-align: center;
+	min-height: 689px;
 }
 
 .status {
@@ -21,9 +22,28 @@
 
 .action {
 	font-size: 0.75em;
-	transition:  0.3s;
+	transition: 0.3s;
 }
 
 .fight-status {
 	margin-top: 20px;
+}
+
+.card-header,
+.card-body,
+.status {
+	color: #fff;
+}
+
+img {
+	height: 128px;
+	width: 128px;
+	margin: 0 auto;
+}
+
+.vs-left {
+	color: #fff;
+}
+.vs-right {
+	color: #212121;
 }
