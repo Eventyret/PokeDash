@@ -22,4 +22,5 @@ export interface Pokemons {
 	generation: number;
 	legendary: number;
 	battle: number;
+	Sprite: string;
 }

@@ -4,6 +4,9 @@
   <table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
     <thead class="thead-primary">
       <tr>
+		  <th>
+			<mfDefaultSorter by="Sprite">Pokedex Number</mfDefaultSorter>
+		  </th>
         <th>
           <mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
         </th>
@@ -34,6 +37,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let pokemon of mf.data">
+		<td><img src="{{pokemon.Sprite}}"></td>
         <td>{{pokemon.PokedexID}}</td>
         <td>{{pokemon.Name}}</td>
         <td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2"> / {{pokemon.Type2}}</span></td>
