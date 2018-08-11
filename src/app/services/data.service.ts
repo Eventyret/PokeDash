@@ -5,6 +5,7 @@ import { throwError } from "rxjs";
 // new import
 import { map } from "rxjs/operators";
 import "rxjs/add/operator/catch";
+import { Result } from "../shared/models/pokemons";
 
 @Injectable({
 	providedIn: "root"
@@ -15,7 +16,7 @@ export class PokemonDataService {
 	getPokemons() {
 		return this.http
 			.get("https://pokedash.herokuapp.com/api")
-			.pipe(map((data: any) => data))
+			.pipe(map((data: Result) => data))
 			.catch((error: any) => {
 				return throwError(error);
 			});

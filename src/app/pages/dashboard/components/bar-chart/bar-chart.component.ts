@@ -1,4 +1,4 @@
-import { PokemonDataService } from "./../../../services/data.service";
+import { PokemonDataService } from "../../../../services/data.service";
 import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";

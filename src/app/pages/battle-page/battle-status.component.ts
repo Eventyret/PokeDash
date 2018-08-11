@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Battle } from "../../components/shared/battle";
-import { Pokemons } from "./../../components/shared/pokemons";
-import { PokemonDataService } from "./../../services/data.service";
+import { Battle } from "../../shared/models/battle";
+import { Pokemons } from "../../shared/models/pokemons";
+import { PokemonDataService } from "../../services/data.service";
 import * as _ from "lodash";
 
 @Component({
@@ -27,8 +27,8 @@ export class BattleStatusComponent implements OnInit {
 		});
 	}
 
-	refreshMatch(){
-		this.randomGenerator(this.pokemonList)
+	refreshMatch() {
+		this.randomGenerator(this.pokemonList);
 	}
 
 	randomGenerator(pokemons) {

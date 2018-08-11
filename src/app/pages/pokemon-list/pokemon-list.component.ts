@@ -1,6 +1,6 @@
-import { PokemonDataService } from "./../../services/data.service";
+import { PokemonDataService } from "../../services/data.service";
 import { Component, OnInit } from "@angular/core";
-import { Pokemons } from "../../components/shared/pokemons";
+import { Pokemons } from "../../shared/models/pokemons";
 import * as _ from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";
 

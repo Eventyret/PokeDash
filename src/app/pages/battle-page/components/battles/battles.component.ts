@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Battle } from "../shared/battle";
+import { Battle } from "../../../../shared/models/battle";
 import * as _ from "lodash";
 import { interval, timer } from "rxjs";
 import { takeUntil } from "rxjs/operators";
