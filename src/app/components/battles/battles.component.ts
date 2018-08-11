@@ -15,8 +15,10 @@ export class BattlesComponent implements OnInit {
 	color: string;
 	buttonText: string;
 
-	@Input() battleInput: Battle;
-	@Input() battleNumber: number;
+	@Input()
+	battleInput: Battle;
+	@Input()
+	battleNumber: number;
 	Battles: any[];
 	isLoading = false;
 	firstBattle = true;
@@ -28,7 +30,6 @@ export class BattlesComponent implements OnInit {
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
 		this.Battles = _.castArray(this.battleInput);
-		this.randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 	}
 
 	setBattleStatus(isInBattle: boolean) {
@@ -40,7 +41,7 @@ export class BattlesComponent implements OnInit {
 				this.buttonText = "Stop Fight";
 				this.isLoading = false;
 				this.countDown();
-			}, 3000);
+			}, 2000);
 		} else {
 			this.stopFighting();
 			if (!this.firstBattle) {
@@ -49,7 +50,7 @@ export class BattlesComponent implements OnInit {
 					this.color = "#F62D14";
 					this.buttonText = "Start Fight";
 					this.isLoading = false;
-				}, 3000);
+				}, 1500);
 			} else {
 				setTimeout(() => {
 					this.battleInput.isActive = false;
@@ -57,7 +58,7 @@ export class BattlesComponent implements OnInit {
 					this.buttonText = "Fight Again";
 					this.isLoading = false;
 					this.combatDisplay = true;
-				}, 3000);
+				}, 1500);
 			}
 		}
 	}
@@ -101,7 +102,6 @@ export class BattlesComponent implements OnInit {
 			}
 		});
 		this.combatDisplay = false;
-		this.stopFighting();
 	}
 
 	countDown() {
@@ -111,7 +111,6 @@ export class BattlesComponent implements OnInit {
 		const timer$ = timer(7000);
 		// when timer emits after 5s, complete source
 		const example = source.takeUntil(timer$);
-		// output: 0,1,2,3
 		const subscribe = example.subscribe(
 			val => {
 				this.countdownText = val;

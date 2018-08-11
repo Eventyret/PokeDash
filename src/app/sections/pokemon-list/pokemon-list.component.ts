@@ -14,7 +14,7 @@ export class PokemonListComponent implements OnInit {
 
 	public data: any[] = [];
 	public battleing;
-	public sortBy = "Name";
+	public sortBy = "id";
 	public sortOrder = "asc";
 	public rowsOnPage = 25;
 	public filterQuery = "";

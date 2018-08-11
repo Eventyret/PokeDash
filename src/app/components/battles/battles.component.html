@@ -8,7 +8,8 @@
 		<ng-template #inCombat>
 			<br>{{battleInput.pokemon1}}<br>
 			<img src="{{battleInput?.sprite1}}" class="img-fluid"><br>
-			<h1 class="vs"><span [style.color]="randomColor">V</span><span [style.color]="randomColor">S</span></h1><br>
+			<h1 class="vs"><span class="vs-left">V</span><span class="vs-right">S</span></h1>
+			<br>
 			<img src="{{battleInput?.sprite2}}" class="img-fluid"><br> {{battleInput.pokemon2}}
 			<br>
 
@@ -17,7 +18,7 @@
 		<ng-template #winner><br>
 			<img src="{{winners[1]}}" alt="{{winners[0]}}" class="img-fluid">
 			<h2>{{winners[0]}} <br>Wins!</h2><br>
-			<i [style.color]="randomColor" class="fas fa-trophy fa-5x"></i>
+			<img src="https://media1.giphy.com/media/3ohhwJPSL00H2r6Rhe/giphy.gif" class="img-fluid">
 		</ng-template>
 	</div>
 	<div class="card-footer text-center">

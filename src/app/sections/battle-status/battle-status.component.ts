@@ -12,6 +12,7 @@ import * as _ from "lodash";
 export class BattleStatusComponent implements OnInit {
 	constructor(private battleService: PokemonDataService) {}
 	battles: Battle[] = [];
+	pokemonList: any;
 
 	ngOnInit() {
 		this.getFightStatus();
@@ -19,11 +20,15 @@ export class BattleStatusComponent implements OnInit {
 
 	getFightStatus() {
 		this.battleService.getPokemons().subscribe(res => {
-			const pokemons = _.filter(res.results, function(o) {
+			this.pokemonList = _.filter(res.results, function(o) {
 				return o.Battle;
 			});
-			this.randomGenerator(pokemons);
+			this.randomGenerator(this.pokemonList);
 		});
+	}
+
+	refreshMatch(){
+		this.randomGenerator(this.pokemonList)
 	}
 
 	randomGenerator(pokemons) {

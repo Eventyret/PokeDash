@@ -1,3 +1,4 @@
+<a (click)="refreshMatch()" class="btn btn-primary btn-lg text-white float-right">More Fights</a>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12 text-center">
@@ -5,7 +6,6 @@
 			<div class="card-deck battles col-auto">
 				<div *ngFor="let battle of battles; let i = index" class="col-auto">
 					<app-battles [battleInput]="battle" [battleNumber]="i"></app-battles>
-
 				</div>
 			</div>
 		</div>
