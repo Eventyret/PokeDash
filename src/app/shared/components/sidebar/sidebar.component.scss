@@ -6,3 +6,11 @@
 		background-color: #ff1a1a;
 	}
 }
+@media screen and (max-width:930px) {
+	h2 {
+		font-size: 1.5rem;
+	}
+	.fas {
+		display: none;
+	}
+}
