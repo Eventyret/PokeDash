@@ -20,12 +20,19 @@ import { DataTableModule } from "angular2-datatable";
 import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ListHelpComponent } from "./pages/pokemon-list/components/modals/list-help/list-help.component";
+import { BattleHelpComponent } from "./pages/battle-page/components/modals/battle-help/battle-help.component";
+import { PokemonTypesComponent } from "./pages/dashboard/components/modals/pokemon-types/pokemon-types.component";
+import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-attributes/avg-attributes.component";
 
 export const appRoutes: Routes = [
 	{ path: "", component: DashboardComponent },
 	{ path: "list", component: PokemonListComponent },
+	{ path: "help/types", component: PokemonTypesComponent },
+	{ path: "help/avg", component: AvgAttributesComponent },
+	{ path: "help/list", component: ListHelpComponent },
+	{ path: "help/battle", component: BattleHelpComponent },
 	{ path: "battle", component: BattleStatusComponent },
-
 	{ path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
@@ -39,7 +46,11 @@ export const appRoutes: Routes = [
 		BarChartComponent,
 		PieChartComponent,
 		BattleStatusComponent,
-		BattlesComponent
+		BattlesComponent,
+		PokemonTypesComponent,
+		AvgAttributesComponent,
+		ListHelpComponent,
+		BattleHelpComponent
 	],
 	imports: [
 		BrowserModule,
