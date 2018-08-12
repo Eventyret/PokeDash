@@ -1,8 +1,10 @@
 import { PokemonDataService } from "../../services/data.service";
 import { Component, OnInit } from "@angular/core";
-import { Pokemons } from "../../shared/models/pokemons";
+import { Pokemons, } from "../../shared/models/pokemons";
 import * as _ from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";
+import { NgbModal , NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
+import { ListHelpComponent } from "./components/modals/list-help/list-help.component";
 
 @Component({
 	selector: "app-pokemon-list",
@@ -10,9 +12,9 @@ import { NgxSpinnerService } from "ngx-spinner";
 	styleUrls: ["./pokemon-list.component.scss"]
 })
 export class PokemonListComponent implements OnInit {
-	constructor(private pokemonService: PokemonDataService, private spinner: NgxSpinnerService) {}
+	constructor(private pokemonService: PokemonDataService, private spinner: NgxSpinnerService, private modalService: NgbModal) {}
 
-	public data: any[] = [];
+	public data: Pokemons[] = [];
 	public battleing;
 	public sortBy = "id";
 	public sortOrder = "asc";
@@ -24,7 +26,7 @@ export class PokemonListComponent implements OnInit {
 		this.populateTable();
 	}
 
-	populateTable(): void {
+	populateTable() {
 		this.pokemonService.getPokemons().subscribe(
 			pokemon => {
 				this.data = pokemon.results;
@@ -37,5 +39,10 @@ export class PokemonListComponent implements OnInit {
 			}
 		);
 	}
+	openHelp() {
+		const modalRef = this.modalService.open(ListHelpComponent, {
+			centered: true,
+			size: "lg"
+		});
+	}
 }
-
