@@ -8,7 +8,7 @@ import { PokemonDataService } from "./services/data.service";
 })
 export class AppComponent implements OnInit {
 	loader = true;
-	notFound = true;
+	notFound = false;
 	constructor(private pokemonService: PokemonDataService) {}
 
 	ngOnInit() {
