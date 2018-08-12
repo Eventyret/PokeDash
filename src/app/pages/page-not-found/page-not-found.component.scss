@@ -1,0 +1,84 @@
+html,
+body {
+	width: 100%;
+	height: 85%;
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+}
+.background {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	background: url(https://i.imgur.com/TQW5VzG.gif) #fff no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.content {
+	color:  #212121;
+	background-color: transparent;
+	z-index: 2;
+	position: absolute;
+	top: 35%;
+	left: 35px;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+h1 {
+	font-size: 160px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+h2 {
+	margin-top: 0;
+	max-width: 700px;
+	font-size: 30px;
+	width: 90%;
+}
+p {
+	text-align: left;
+	padding-bottom: 32px;
+	/* Fallback */
+
+	font-size: 20px;
+	/* For responsiveness */
+
+	font-size: 2vmin;
+}
+
+.btn-outline-white {
+	position: absolute;
+	width: 120px;
+    right: 22.2%;
+    bottom: 35%;
+	z-index: 500;
+	animation: travoltaMagic 4s infinite 0.35s linear;
+
+}
+
+@keyframes travoltaMagic{
+    0%{
+		background: #FF5722;
+		color:  #fff;
+	}
+    50%{
+		color:  #fff;
+		background: transparent;
+        }
+}
+
+.btn {
+	background-color: #FFBD00;
+	color: #000094;
+	border: 1px solid #000094;
+}
+
+.four {
+	color: #FFBD00;
+}
+.zero{
+	color: #000094;
+}

@@ -25,6 +25,7 @@ import { BattleHelpComponent } from "./pages/battle-page/components/battle-help/
 import { PokemonTypesComponent } from "./pages/dashboard/components/modals/pokemon-types/pokemon-types.component";
 import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-attributes/avg-attributes.component";
 import { StartupHelpComponent } from "./shared/components/startup-help/startup-help.component";
+import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 
 export const appRoutes: Routes = [
 	{ path: "", component: DashboardComponent },
@@ -35,7 +36,7 @@ export const appRoutes: Routes = [
 	{ path: "help/battle", component: BattleHelpComponent },
 	{ path: "help/startup", component: StartupHelpComponent },
 	{ path: "battle", component: BattlePageComponent },
-	{ path: "**", redirectTo: "", pathMatch: "full" }
+	{ path: "**", component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -53,7 +54,8 @@ export const appRoutes: Routes = [
 		AvgAttributesComponent,
 		ListHelpComponent,
 		BattleHelpComponent,
-		StartupHelpComponent
+		StartupHelpComponent,
+		PageNotFoundComponent
 	],
 	imports: [
 		BrowserModule,

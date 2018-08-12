@@ -139,17 +139,16 @@
 	</svg>
 </div>
 <div *ngIf="!loader">
-
-	<app-navbar></app-navbar>
-
-
-	<div class="container-fluid">
-		<div class="row" id="mainContent">
-			<app-sidebar class="col-md-2 d-none d-md-block sidebar px-2" id="sidebar"></app-sidebar>
-			<div class="col-sm-12 col-md-10 ml-md-auto d-block mt-2" role="main" id="dashboard">
-				<router-outlet></router-outlet>
+	<div *ngIf="!notFound">
+		<app-navbar></app-navbar>
+		<div class="container-fluid">
+			<div class="row" id="mainContent">
+				<app-sidebar class="col-md-2 d-none d-md-block sidebar px-2" id="sidebar"></app-sidebar>
+				<div class="col-sm-12 col-md-10 ml-md-auto d-block mt-2" role="main" id="dashboard">
+					<router-outlet></router-outlet>
+				</div>
 			</div>
 		</div>
 	</div>
-
+<app-page-not-found></app-page-not-found>
 </div>
