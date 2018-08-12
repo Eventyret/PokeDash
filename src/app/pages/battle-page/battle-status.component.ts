@@ -2,8 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Battle } from "../../shared/models/battle";
 import { PokemonDataService } from "../../services/data.service";
 import * as _ from "lodash";
-import { BattleHelpComponent } from "./components/modals/battle-help/battle-help.component";
+import { BattleHelpComponent } from "./components/battle-help/battle-help.component";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
 	selector: "app-battle-status",
@@ -11,21 +12,30 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 	styleUrls: ["./battle-status.component.scss"]
 })
 export class BattleStatusComponent implements OnInit {
-	constructor(private battleService: PokemonDataService, private modalService: NgbModal) {}
+	constructor(private battleService: PokemonDataService, private modalService: NgbModal, private spinner: NgxSpinnerService) {}
 	battles: Battle[] = [];
 	pokemonList: any;
 
 	ngOnInit() {
+		this.spinner.show();
 		this.getFightStatus();
 	}
 
 	getFightStatus() {
-		this.battleService.getPokemons().subscribe(res => {
-			this.pokemonList = _.filter(res.results, function(o) {
-				return o.Battle;
-			});
-			this.randomGenerator(this.pokemonList);
-		});
+		this.battleService.getPokemons().subscribe(
+			res => {
+				this.pokemonList = _.filter(res.results, function(o) {
+					return o.Battle;
+				});
+				this.randomGenerator(this.pokemonList);
+			},
+			error => {
+				console.log(error);
+			},
+			() => {
+				this.spinner.hide();
+			}
+		);
 	}
 
 	refreshMatch() {

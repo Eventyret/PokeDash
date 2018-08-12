@@ -25,7 +25,7 @@ export class BattlesComponent implements OnInit {
 	winners = [];
 	combatDisplay = true;
 	countdownText = 0;
-	randomColor: string;
+	helpText: string;
 
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
@@ -33,6 +33,7 @@ export class BattlesComponent implements OnInit {
 	}
 
 	setBattleStatus(isInBattle: boolean) {
+		this.helpText = "Get Ready to fight";
 		if (isInBattle) {
 			this.fighting();
 			setTimeout(() => {

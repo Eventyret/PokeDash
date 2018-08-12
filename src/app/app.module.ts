@@ -21,7 +21,7 @@ import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ListHelpComponent } from "./pages/pokemon-list/components/modals/list-help/list-help.component";
-import { BattleHelpComponent } from "./pages/battle-page/components/modals/battle-help/battle-help.component";
+import { BattleHelpComponent } from "./pages/battle-page/components/battle-help/battle-help.component";
 import { PokemonTypesComponent } from "./pages/dashboard/components/modals/pokemon-types/pokemon-types.component";
 import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-attributes/avg-attributes.component";
 import { StartupHelpComponent } from "./shared/components/startup-help/startup-help.component";
