@@ -13,7 +13,7 @@ import { Routes } from "@angular/router";
 import { ChartsModule } from "ng2-charts";
 import { BarChartComponent } from "./pages/dashboard/components/bar-chart/bar-chart.component";
 import { PieChartComponent } from "./pages/dashboard/components/pie-chart/pie-chart.component";
-import { BattleStatusComponent } from "./pages/battle-page/battle-status.component";
+import { BattlePageComponent } from "./pages/battle-page/battle-page.component";
 import { BattlesComponent } from "./pages/battle-page/components/battles/battles.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from "angular2-datatable";
@@ -34,7 +34,7 @@ export const appRoutes: Routes = [
 	{ path: "help/list", component: ListHelpComponent },
 	{ path: "help/battle", component: BattleHelpComponent },
 	{ path: "help/startup", component: StartupHelpComponent },
-	{ path: "battle", component: BattleStatusComponent },
+	{ path: "battle", component: BattlePageComponent },
 	{ path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
@@ -47,7 +47,7 @@ export const appRoutes: Routes = [
 		PokemonListComponent,
 		BarChartComponent,
 		PieChartComponent,
-		BattleStatusComponent,
+		BattlePageComponent,
 		BattlesComponent,
 		PokemonTypesComponent,
 		AvgAttributesComponent,

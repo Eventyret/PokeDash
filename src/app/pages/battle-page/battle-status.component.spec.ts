@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { BattleStatusComponent } from "./battle-status.component";
+import { BattlePageComponent } from "./battle-page.component";
 
 describe("BattleStatusComponent", () => {
-  let component: BattleStatusComponent;
-  let fixture: ComponentFixture<BattleStatusComponent>;
+  let component: BattlePageComponent;
+  let fixture: ComponentFixture<BattlePageComponent>;
 
   beforeEach(async(() => {
 	TestBed.configureTestingModule({
-		declarations: [ BattleStatusComponent ]
+		declarations: [ BattlePageComponent ]
 	})
 	.compileComponents();
   }));
 
   beforeEach(() => {
-	fixture = TestBed.createComponent(BattleStatusComponent);
+	fixture = TestBed.createComponent(BattlePageComponent);
 	component = fixture.componentInstance;
 	fixture.detectChanges();
   });

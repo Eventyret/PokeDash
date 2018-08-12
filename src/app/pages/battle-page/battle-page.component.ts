@@ -7,11 +7,11 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
-	selector: "app-battle-status",
-	templateUrl: "./battle-status.component.html",
-	styleUrls: ["./battle-status.component.scss"]
+	selector: "app-battle-page",
+	templateUrl: "./battle-page.component.html",
+	styleUrls: ["./battle-page.component.scss"]
 })
-export class BattleStatusComponent implements OnInit {
+export class BattlePageComponent implements OnInit {
 	constructor(private battleService: PokemonDataService, private modalService: NgbModal, private spinner: NgxSpinnerService) {}
 	battles: Battle[] = [];
 	pokemonList: any;
