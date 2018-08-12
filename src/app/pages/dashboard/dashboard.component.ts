@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Pokemons } from "../../shared/models/pokemons";
 import { AvgAttributesComponent } from "./components/modals/avg-attributes/avg-attributes.component";
 import { PokemonTypesComponent } from "./components/modals/pokemon-types/pokemon-types.component";

@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Pokemons, } from "../../shared/models/pokemons";
 import * as _ from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";
-import { NgbModal , NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { ListHelpComponent } from "./components/modals/list-help/list-help.component";
 
 @Component({

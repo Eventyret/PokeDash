@@ -24,6 +24,7 @@ import { ListHelpComponent } from "./pages/pokemon-list/components/modals/list-h
 import { BattleHelpComponent } from "./pages/battle-page/components/modals/battle-help/battle-help.component";
 import { PokemonTypesComponent } from "./pages/dashboard/components/modals/pokemon-types/pokemon-types.component";
 import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-attributes/avg-attributes.component";
+import { StartupHelpComponent } from "./shared/components/startup-help/startup-help.component";
 
 export const appRoutes: Routes = [
 	{ path: "", component: DashboardComponent },
@@ -32,6 +33,7 @@ export const appRoutes: Routes = [
 	{ path: "help/avg", component: AvgAttributesComponent },
 	{ path: "help/list", component: ListHelpComponent },
 	{ path: "help/battle", component: BattleHelpComponent },
+	{ path: "help/startup", component: StartupHelpComponent },
 	{ path: "battle", component: BattleStatusComponent },
 	{ path: "**", redirectTo: "", pathMatch: "full" }
 ];
@@ -50,7 +52,8 @@ export const appRoutes: Routes = [
 		PokemonTypesComponent,
 		AvgAttributesComponent,
 		ListHelpComponent,
-		BattleHelpComponent
+		BattleHelpComponent,
+		StartupHelpComponent
 	],
 	imports: [
 		BrowserModule,

@@ -3,7 +3,7 @@ import { Battle } from "../../shared/models/battle";
 import { PokemonDataService } from "../../services/data.service";
 import * as _ from "lodash";
 import { BattleHelpComponent } from "./components/modals/battle-help/battle-help.component";
-import { NgbModal, NgbTooltip } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
 	selector: "app-battle-status",

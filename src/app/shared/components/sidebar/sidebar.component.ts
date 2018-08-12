@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { StartupHelpComponent } from "../startup-help/startup-help.component";
 
 @Component({
   selector: "app-sidebar",
@@ -7,9 +9,16 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  openHelp() {
+	  this.modalService.open(StartupHelpComponent, {
+		  centered: true,
+		  size: "lg"
+	  });
   }
 
 }
