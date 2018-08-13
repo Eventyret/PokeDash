@@ -2,12 +2,15 @@
 	box-sizing: border-box;
 }
 
-html {
+html, body {
 	height: 100%;
 }
 
-body {
-	height: 100%;
+#sidebar {
+	height: 100vh;
+	padding-top: 80px;
+	position: fixed;
+	background-color: #007bff;
 }
 
 .section-container {
