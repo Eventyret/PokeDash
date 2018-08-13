@@ -26,9 +26,11 @@ import { PokemonTypesComponent } from "./pages/dashboard/components/modals/pokem
 import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-attributes/avg-attributes.component";
 import { StartupHelpComponent } from "./shared/components/startup-help/startup-help.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
+import { StartupComponent } from "./pages/startup/startup.component";
 
 export const appRoutes: Routes = [
-	{ path: "", component: DashboardComponent },
+	{ path: "", component: StartupComponent },
+	{ path: "dashboard", component: DashboardComponent },
 	{ path: "list", component: PokemonListComponent },
 	{ path: "help/types", component: PokemonTypesComponent },
 	{ path: "help/avg", component: AvgAttributesComponent },
@@ -55,7 +57,8 @@ export const appRoutes: Routes = [
 		ListHelpComponent,
 		BattleHelpComponent,
 		StartupHelpComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		StartupComponent
 	],
 	imports: [
 		BrowserModule,
