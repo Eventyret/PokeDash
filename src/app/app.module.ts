@@ -27,6 +27,7 @@ import { AvgAttributesComponent } from "./pages/dashboard/components/modals/avg-
 import { StartupHelpComponent } from "./shared/components/startup-help/startup-help.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { StartupComponent } from "./pages/startup/startup.component";
+import { NgxPaginationModule } from "ngx-pagination";
 
 export const appRoutes: Routes = [
 	{ path: "", component: StartupComponent },
@@ -69,7 +70,8 @@ export const appRoutes: Routes = [
 		FormsModule,
 		FilterPipeModule,
 		NgbModule.forRoot(),
-		NgxSpinnerModule
+		NgxSpinnerModule,
+		NgxPaginationModule
 	],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]

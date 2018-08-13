@@ -20,6 +20,7 @@ export class PokemonListComponent implements OnInit {
 	public sortOrder = "asc";
 	public rowsOnPage = 25;
 	public filterQuery = "";
+	public p = 1;
 
 	ngOnInit() {
 		this.spinner.show();
