@@ -1,71 +1,89 @@
 <app-navbar></app-navbar>
-	<div class="container-fluid">
-		<div class="row" id="mainContent">
-			<app-sidebar class="col-md-2 d-none d-md-block sidebar px-2" id="sidebar"></app-sidebar>
-			<div class="col-sm-12 col-md-10 ml-md-auto d-block mt-2" role="main" id="dashboard">
-<ngx-spinner bdColor="rgb(255,255,255)" size="large" color="#007bff" type="timer">
-</ngx-spinner>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12 col-md-6">
-			<h2 class="text-primary">Pokemon List <i class="fas fa-question-circle" (click)="openHelp()" placement="right" ngbTooltip="More information"></i></h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table table-inverse table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
-				<thead class="thead-primary">
-					<tr>
-						<th>
-							<mfDefaultSorter by="Sprite"></mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Name">Name</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Type1">Type</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Attack">Attack</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Defense">Defense</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Speed">Speed</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
-						</th>
-						<th>
-							<mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let pokemon of mf.data">
-						<td><img src="{{pokemon.Sprite}}"></td>
-						<td>{{pokemon.PokedexID}}</td>
-						<td>{{pokemon.Name}}</td>
-						<td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2 && pokemon.Type2 !== 'NULL'"> / {{pokemon.Type2}}</span></td>
-						<td>{{pokemon.Attack}}</td>
-						<td>{{pokemon.Defense}}</td>
-						<td>{{pokemon.Speed}}</td>
-						<td>{{pokemon.Generation}}</td>
-						<td><span class="badge badge-danger" *ngIf="pokemon.Legendary">Legendary <i class="fas fa-star"></i></span></td>
-						<td><span class="badge badge-success" *ngIf="pokemon.Battle"><a routerLink="/battle">In Battle <i class="fas fa-gamepad"></i></a></span></td>
-					</tr>
-				</tbody>
-				<mfBootstrapPaginator></mfBootstrapPaginator>
-			</table>
+	<div class="row" id="mainContent">
+		<app-sidebar class="col-md-2 d-none d-md-block sidebar px-2" id="sidebar"></app-sidebar>
+		<div class="col-sm-12 col-md-10 ml-md-auto d-block mt-2" role="main" id="dashboard">
+			<ngx-spinner bdColor="rgb(255,255,255)" size="large" color="#007bff" type="timer">
+			</ngx-spinner>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<h2 class="text-primary">Pokemon List <i class="fas fa-question-circle" (click)="openHelp()" placement="right" ngbTooltip="More information"></i></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-inverse table-hover d-none d-md-block" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+							<thead class="thead-primary">
+								<tr>
+									<th>
+										<mfDefaultSorter by="Sprite"></mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="id">Pokedex Number</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Name">Name</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Type1">Type</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Attack">Attack</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Defense">Defense</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Speed">Speed</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Generation">Generation</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="Legendary">Legendary</mfDefaultSorter>
+									</th>
+									<th>
+										<mfDefaultSorter by="battle">In Battle?</mfDefaultSorter>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let pokemon of mf.data">
+									<td><img src="{{pokemon.Sprite}}"></td>
+									<td>{{pokemon.PokedexID}}</td>
+									<td>{{pokemon.Name}}</td>
+									<td>{{pokemon.Type1}}<span *ngIf="pokemon.Type2 && pokemon.Type2 !== 'NULL'"> / {{pokemon.Type2}}</span></td>
+									<td>{{pokemon.Attack}}</td>
+									<td>{{pokemon.Defense}}</td>
+									<td>{{pokemon.Speed}}</td>
+									<td>{{pokemon.Generation}}</td>
+									<td><span class="badge badge-danger" *ngIf="pokemon.Legendary">Legendary <i class="fas fa-star"></i></span></td>
+									<td><span class="badge badge-success" *ngIf="pokemon.Battle"><a routerLink="/battle">In Battle <i class="fas fa-gamepad"></i></a></span></td>
+								</tr>
+							</tbody>
+							<mfBootstrapPaginator></mfBootstrapPaginator>
+						</table>
 
+						<div class="d-block d-md-none">
+							<div *ngFor="let pokemon of mf.data">
+
+								<div class="card">
+									<h5 class="card-title text-center">{{pokemon.Name}}</h5>
+									<img class="card-img-top img-mobile" src="{{pokemon.Sprite}}" alt="{{pokemon.Name}}">
+									<div class="card-body">
+											Type: <p>{{pokemon.Type1}}<span *ngIf="pokemon.Type2 && pokemon.Type2 !== 'NULL'"> / {{pokemon.Type2}}</span></p>
+											<p>Atk: {{pokemon.Attack}}</p>
+											<p>Def: {{pokemon.Defense}}</p>
+											<p>Speed: {{pokemon.Speed}}</p>
+											<p>Generation: {{pokemon.Generation}}</p>
+											<span class="badge badge-danger" *ngIf="pokemon.Legendary">Legendary <i class="fas fa-star"></i></span>
+											<span class="badge badge-success" *ngIf="pokemon.Battle"><a routerLink="/battle">In Battle <i class="fas fa-gamepad"></i></a></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-</div>
