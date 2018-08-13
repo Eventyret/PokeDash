@@ -26,6 +26,7 @@ export class BattlesComponent implements OnInit {
 	combatDisplay = true;
 	countdownText = 0;
 	helpText: string;
+	stopFightText = `Please stop <br />the fight to continue`;
 
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
@@ -38,6 +39,7 @@ export class BattlesComponent implements OnInit {
 			this.fighting();
 			setTimeout(() => {
 				this.battleInput.isActive = true;
+				this.helpText = " Fight in Progress";
 				this.color = "#5EE31C";
 				this.buttonText = "Stop Fight";
 				this.isLoading = false;
@@ -73,6 +75,7 @@ export class BattlesComponent implements OnInit {
 	}
 	stopFighting() {
 		if (!this.firstBattle) {
+			this.helpText = "Please stop the Fight to continue";
 			this.color = "#FFCB05";
 			this.buttonText = "Stopping fight";
 			this.isLoading = true;
@@ -93,7 +96,6 @@ export class BattlesComponent implements OnInit {
 	theWinner() {
 		this.Battles.forEach(battle => {
 			const winnerNumber = Math.floor(Math.random() * 10);
-			console.log(battle);
 			if (winnerNumber >= 5) {
 				this.winners.push(battle["pokemon1"]);
 				this.winners.push(battle["sprite1"]);

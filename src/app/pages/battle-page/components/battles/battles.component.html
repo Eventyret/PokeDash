@@ -17,13 +17,14 @@
 			<img src="{{battleInput?.sprite2}}" class="img-fluid"><br>
 			<h3 class="card-title">{{battleInput.pokemon2}}</h3>
 			<br>
-			<p *ngIf="helpText">{{helpText}}</p>
+			<h3 *ngIf="helpText">{{helpText}}</h3>
 			<p class="display-4" *ngIf="countdownText !=0 && countdownText !=5">{{countdownText}}</p>
 		</ng-template>
 		<ng-template #winner><br>
 			<img src="{{winners[1]}}" alt="{{winners[0]}}" class="img-fluid">
 			<h2>{{winners[0]}} <br>Wins!</h2><br>
 			<img src="https://media1.giphy.com/media/3ohhwJPSL00H2r6Rhe/giphy.gif" class="img-fluid">
+			<h2 [innerHTML]="stopFightText"></h2><br>
 		</ng-template>
 	</div>
 	<div class="card-footer">
