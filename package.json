@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ghbuild": "ng build --prod --base-href 'https://eventyret.github.io/PokemonDashboard/' && npx ngh"
+    "ghbuild": "ng build --prod --base-href \"https://eventyret.github.io/PokemonDashboard/\" && npx ngh"
   },
   "private": true,
   "dependencies": {
