@@ -39,6 +39,7 @@ export class BarChartComponent implements OnInit {
   public barChartOptions: any = {
 	scaleShowVerticalLines: true,
 	responsive: true,
+	maintainAspectRatio: true
   };
   barChartColors: any[] = [
 	{

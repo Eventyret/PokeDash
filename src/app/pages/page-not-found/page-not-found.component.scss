@@ -10,7 +10,7 @@ body {
 	position: absolute;
 	width: 100%;
 	min-height: 100%;
-	background: url(https://i.imgur.com/TQW5VzG.gif) #fff no-repeat center center fixed;
+	background: url(https://i.chzbgr.com/full/5617635584/h7F73C6C3/) #fff no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -39,14 +39,11 @@ h2 {
 	width: 90%;
 }
 p {
-	text-align: left;
-	padding-bottom: 32px;
-	/* Fallback */
-
-	font-size: 20px;
-	/* For responsiveness */
-
-	font-size: 2vmin;
+    text-align: left;
+    font-size: 2vw;
+    color: #212121;
+    background-color: #ffffffb3;
+    border-radius: 10px;
 }
 
 .btn-outline-white {
