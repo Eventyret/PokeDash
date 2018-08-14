@@ -37,16 +37,16 @@ export class BarChartComponent implements OnInit {
   public barChartType = "bar";
   public barChartLegend = false;
   public barChartOptions: any = {
-	scaleShowVerticalLines: false,
-	responsive: true
+	scaleShowVerticalLines: true,
+	responsive: true,
   };
   barChartColors: any[] = [
 	{
 		backgroundColor: [
-		"#F62D14",
+		"#A8B820",
 		"#705848",
 		"#7038F8",
-		"#FFCB05",
+		"#F8D030",
 		"#EE99AC",
 		"#C03028",
 		"#F08030",

@@ -17,7 +17,6 @@ import { BattlePageComponent } from "./pages/battle-page/battle-page.component";
 import { BattlesComponent } from "./pages/battle-page/components/battles/battles.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from "angular2-datatable";
-import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ListHelpComponent } from "./pages/pokemon-list/components/modals/list-help/list-help.component";
@@ -68,7 +67,6 @@ export const appRoutes: Routes = [
 		HttpClientModule,
 		DataTableModule,
 		FormsModule,
-		FilterPipeModule,
 		NgbModule.forRoot(),
 		NgxSpinnerModule,
 		NgxPaginationModule
