@@ -9,28 +9,61 @@ So come and start your own journey!
 [PokéDash](https://eventyret.github.io/PokemonDashboard/)
  
 ## UX
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+This was a simple dashboard, but I as a developer found it boring to just have a "Dashboard" they all look the same. Since this was for a well known game and stats around this, the people should feel right at home. It should feel like they are in the World of Pokémon's.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+The whole thing starts with the loadingscreen with a animated intro from Pokémon Gold.
+Just as in the game you would have a "Start Button"
+
+#### The Dashboard
+![bOawvp1.png](https://i.imgur.com/bOawvp1.png)
+
+Navigating a Dashboard can always be tricky so be sure to see "Professor Oak" and he will gladly explain what Pokémon's are and a bit about the page. This was ment for a rough intro to it for users. Once closed the user will not see this again, unless the Poké Dex icon in the menu is clicked.
+
+
+#### Pokemon List
+![cUj3MuO.png](https://i.imgur.com/cUj3MuO.png)
+
+The Pokemon list acts as the Poké Dex, where you can find a small image of each pokemon and some stats about them, this was intended to be looking and styled as a Pokedex, but due the layout and how the page looks I felt that this should be more of a table.
+Though on Mobile a Table can be hard to read, so this was redone to fetch data as small cards for easier understanding and reading on mobile devices.
+![nKeTODu.png](https://i.imgur.com/nKeTODu.png)
+
+
+#### Pokémon Battles
+![FHmy67G.png](https://i.imgur.com/FHmy67G.png)
+What is Pokémon without a Pokémon Battle! For me this was a must, and for the project a bonus. Some people really wanted this to be the main event with more functionality and this is something I have planned do at a later stage. It will change color depending on if it's in a fight, waiting, or not started.
+
+Winner is drawn by random by rolling a dice between 0-10.
+
+Again for mobile "cards" where used for simplicity and the way it's easier for a user to consume.
+![GUkWdOv.png](https://i.imgur.com/GUkWdOv.png)
+
+#### Page Not Found
+I always love good 404 pages, they are supposed to be fun but still have a meaning for the user.
+This will ruin the suprise with a screenshot so please do visit our the live demo [here](https://eventyret.github.io/PokemonDashboard/not-found)
+
+INSERT - Adobe XD Live URL
+
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
-### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+#### Pokémon by type
+- You can visulize the data and clearly see the amount of Pokémon's by their type. 
+  This means its easy to see how many "Steeel", "Electric", "Fairy" types of pokemon there is.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+#### Pokémon Avg Stats
+- This is will display the average stats for the all Pokémon's combined.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+#### Pokémon List
+- A Simple table list displaying each pokemon, and its stats.
+
+#### Pokémon Battle
+- A minigame for the visitor to take part in to have fun and play a small round of Pokémon!
 
 ### Features Left to Implement
-- Another feature idea
+- The minigame (aka Battle) needs a bit more attention to details, some people have requested to make use of stats to make a winner instead of random.
+- Legend for BarChart, this is working fine for Pie Chart but due the package, it seems to have an issue with loading undefined on Barcharts.
+- Filter by other types. Currently it the table only sorts.
 
 ## Technologies Used
 
@@ -47,6 +80,10 @@ In this section, you should mention all of the languages, frameworks, libraries,
 >The goal of ng-bootstrap is to completely replace JavaScript implementation for components. Nor should you include other dependencies like jQuery or popper.js. It is not necessary and might interfere with ng-bootstrap code.
 - [Angular CLI](https://cli.angular.io/)
     - This is the Command Line Interface which makes it easy to generate components, services and scaffold the project.
+- [TypeScript](https://www.typescriptlang.org/)
+  - Angular is written in Typescript. Typescript is a supoerset of Javascript that compiles into plain Javascript.
+
+
 
 ### Back end
 - [Python](https://www.python.org/)
@@ -103,6 +140,9 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Media
 - The photos used in this site were obtained from ...
 
+### Dataset
+- [Pokemon with stats | Kaggle](https://www.kaggle.com/abcsds/pokemon)
+  - This is the Dataset originated from, have been customized and added images to all of them and cleaned up Mega Evolution Pokémon
 ### Acknowledgements
 
 - I received inspiration for this project from X
