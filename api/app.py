@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 SECRET_URI = os.getenv("SECRET_URI")
-dev = True
+dev = False
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
