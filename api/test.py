@@ -8,7 +8,7 @@ class ApiTestCase(unittest.TestCase):
         tester = app.test_client(self)
         print("=> Testing to see if API responds")
         response = tester.get("/api", content_type="application/json")
-        self.assertEqual(response.status_code, 200):
+        self.assertEqual(response.status_code, 200)
 
 
 if __name__ == "__main__":
