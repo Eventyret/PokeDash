@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Battle } from "../../shared/models/battle";
 import { PokemonDataService } from "../../services/data.service";
-import { slice as _slice , map as _map, shuffle as _shuffle } from "lodash";
+import { slice as _slice , map as _map, shuffle as _shuffle, filter as _filter } from "lodash";
 import { BattleHelpComponent } from "./components/battle-help/battle-help.component";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgxSpinnerService } from "ngx-spinner";
@@ -24,7 +24,7 @@ export class BattlePageComponent implements OnInit {
 	getFightStatus() {
 		this.battleService.getPokemons().subscribe(
 			res => {
-				this.pokemonList = _.filter(res.results, function(o) {
+				this.pokemonList = _filter(res.results, function(o) {
 					return o.Battle;
 				});
 				this.randomGenerator(this.pokemonList);

@@ -29,7 +29,7 @@ export class BattlesComponent implements OnInit {
 
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
-		this.Battles = _.castArray(this.battleInput);
+		this.Battles = _castArray(this.battleInput);
 	}
 
 	setBattleStatus(isInBattle: boolean) {
