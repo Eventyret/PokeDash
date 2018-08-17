@@ -18,6 +18,13 @@ html, body {
 	height: 70vh;
 }
 
+.row, .container-fluid {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
 /* Charts styling */
 
 .card-theme {
