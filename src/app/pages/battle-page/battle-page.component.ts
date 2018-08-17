@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Battle } from "../../shared/models/battle";
 import { PokemonDataService } from "../../services/data.service";
-import * as _ from "lodash";
+import { slice as _slice , map as _map, shuffle as _shuffle } from "lodash";
 import { BattleHelpComponent } from "./components/battle-help/battle-help.component";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgxSpinnerService } from "ngx-spinner";
@@ -43,17 +43,17 @@ export class BattlePageComponent implements OnInit {
 	}
 
 	openHelp() {
-		const modalRef = this.modalService.open(BattleHelpComponent, {
+		this.modalService.open(BattleHelpComponent, {
 			centered: true,
 			size: "lg"
 		});
 	}
 
 	randomGenerator(pokemons) {
-		const shuffleBattleNames = _.shuffle(pokemons);
-		const pokemonList = _.slice(shuffleBattleNames, 0, 80);
-		const randomNames = _.map(pokemonList, "Name");
-		const spriteName = _.map(pokemonList, "Sprite");
+		const shuffleBattleNames = _shuffle(pokemons);
+		const pokemonList = _slice(shuffleBattleNames, 0, 80);
+		const randomNames = _map(pokemonList, "Name");
+		const spriteName = _map(pokemonList, "Sprite");
 		for (let pairID = 0; pairID < 4; pairID++) {
 			this.battles.push({
 				id: pairID,

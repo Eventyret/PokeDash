@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Battle } from "../../../../shared/models/battle";
-import * as _ from "lodash";
+import { castArray as _castArray } from "lodash";
 import { interval, timer } from "rxjs";
-import { takeUntil } from "rxjs/operators";
 
 @Component({
 	selector: "app-battles",
@@ -113,8 +112,8 @@ export class BattlesComponent implements OnInit {
 		// after 5 seconds, emit value
 		const timer$ = timer(7000);
 		// when timer emits after 5s, complete source
-		const example = source.takeUntil(timer$);
-		const subscribe = example.subscribe(
+		const countdown = source.takeUntil(timer$);
+		countdown.subscribe(
 			val => {
 				this.countdownText = val;
 			},

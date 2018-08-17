@@ -1,6 +1,6 @@
 import { PokemonDataService } from "../../../../services/data.service";
 import { Component, OnInit } from "@angular/core";
-import * as _ from "lodash";
+import {countBy as _countBy } from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -74,7 +74,7 @@ export class BarChartComponent implements OnInit {
   getData() {
 	this.pokeService.getPokemons().subscribe(res => {
 		const data = res.results;
-		this.sortedData = _.countBy(data, "Type1");
+		this.sortedData = _countBy(data, "Type1");
 		this.mapLabels();
 	}, error => {
 		console.log(error);

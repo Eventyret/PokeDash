@@ -1,7 +1,7 @@
 import { Pokemons } from "../../../../shared/models/pokemons";
 import { PokemonDataService } from "../../../../services/data.service";
 import { Component, OnInit } from "@angular/core";
-import * as _ from "lodash";
+import {round as _round, meanBy as _meanBy} from "lodash";
 import { NgxSpinnerService } from "ngx-spinner";
 @Component({
 	selector: "app-pie-chart",
@@ -48,26 +48,26 @@ export class PieChartComponent implements OnInit {
 	}
 
 	findAverage() {
-		this.attack = _.round(
-			_.meanBy(this.pokemon, function(o) {
+		this.attack = _round(
+			_meanBy(this.pokemon, function(o) {
 				return o.Attack;
 			}),
 			2
 		);
-		this.defense = _.round(
-			_.meanBy(this.pokemon, function(o) {
+		this.defense = _round(
+			_meanBy(this.pokemon, function(o) {
 				return o.Defense;
 			}),
 			2
 		);
-		this.speed = _.round(
-			_.meanBy(this.pokemon, function(o) {
+		this.speed = _round(
+			_meanBy(this.pokemon, function(o) {
 				return o.Speed;
 			}),
 			2
 		);
-		this.hp = _.round(
-			_.meanBy(this.pokemon, function(o) {
+		this.hp = _round(
+			_meanBy(this.pokemon, function(o) {
 				return o.HP;
 			}),
 			2

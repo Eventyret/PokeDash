@@ -18,13 +18,13 @@ export class DashboardComponent implements OnInit {
 	ngOnInit() {}
 
 	openHelpTypes() {
-		const modalRef = this.modalService.open(PokemonTypesComponent, {
+		this.modalService.open(PokemonTypesComponent, {
 			centered: true,
 			size: "lg"
 		});
 	}
 	openHelpAttr() {
-		const modalRef = this.modalService.open(AvgAttributesComponent, {
+		this.modalService.open(AvgAttributesComponent, {
 			centered: true,
 			size: "lg"
 		});
