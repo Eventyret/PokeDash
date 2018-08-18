@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ghbuild": "ng build --prod --base-href \"https://eventyret.github.io/PokemonDashboard/\" && npx ngh"
+    "ghbuild": "ng build --prod --base-href \"https://eventyret.github.io/PokeDash/\" && npx ngh"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +29,7 @@
     "bootstrap": "^4.1.3",
     "bootswatch": "4.1.3",
     "chart.js": "^2.7.2",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.7",
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
@@ -38,6 +39,7 @@
     "popper.js": "^1.14.4",
     "rxjs": "^6.2.2",
     "tunnel-agent": "^0.6.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
