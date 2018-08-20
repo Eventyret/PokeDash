@@ -23,24 +23,24 @@ def lets_redirect():
 
 @app.route("/api", methods=["GET"])
 def get_all_pokemons():
+    pokemons = mongo.db.pokemons_dev if DeveloperMode else mongo.db.pokemons
+
+    # a dict mapping from output key to the key in a mongo pokemon document:
+    record_keys = {
+        "PokedexID": "PokeID", "Name": "Name", "Type1": "Type1",
+        "Type2": "Type2", "Type2": "Type2", "Total": "Total",
+        "HP": "HP", "Attack": "Attack", "Defense": "Defense",
+        "Sp": "Sp", "Speed": "Speed", "Generation": "Generation",
+        "Legendary": "Legendary", "Battle": "Battle",
+        "Sprite": "Sprite",
+    }
     if DeveloperMode:
-        pokemons = mongo.db.pokemons_dev
-    else:
-        pokemons = mongo.db.pokemons
+        record_keys["DeveloperMode"] = "DeveloperMode"
+
     output = []
     for q in pokemons.find():
-        if DeveloperMode:
-            output.append({"PokedexID": q["PokeID"], "Name": q["Name"], "Type1": q["Type1"], "Type2": q["Type2"],
-                           "Type2": q["Type2"], "Total": q["Total"], "HP": q["HP"],
-                           "Attack": q["Attack"], "Defense": q["Defense"], "Sp": q["Sp"], "Speed": q["Speed"],
-                           "Generation": q["Generation"], "Legendary": q["Legendary"], "Battle": q["Battle"],
-                           "Sprite": q["Sprite"], "DeveloperMode": q["DeveloperMode"]})
-        else:
-            output.append({"PokedexID": q["PokeID"], "Name": q["Name"], "Type1": q["Type1"], "Type2": q["Type2"],
-                           "Type2": q["Type2"], "Total": q["Total"], "HP": q["HP"],
-                           "Attack": q["Attack"], "Defense": q["Defense"], "Sp": q["Sp"], "Speed": q["Speed"],
-                           "Generation": q["Generation"], "Legendary": q["Legendary"], "Battle": q["Battle"],
-                           "Sprite": q["Sprite"]})
+        output.append({output_key: q[mongo_key] for (
+            output_key, mongo_key) in record_keys.items()})
 
     return jsonify({"results": output})
 
