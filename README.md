@@ -154,13 +154,17 @@ python test.py
 ### Manual Tests
 I'm fairly certain that i have done alot of tests. So for manual we have tested the follwoing
 
-#### Browsers
+#### Responsive Testing
+
+##### Browsers
 	- Microsoft Explorer 11
 	-  Microsoft Edge (v18)
 	-  Chrome (v70)
 	-  Firefox Developer Edition (v62)
 
-#### Responsive Testing
+
+### Known Bugs
+
 Since the project is built with Bootstrap 4 (Bootswatch) i'm fairly certain things are responsive, though there will always be widths and heights that are uncommon and will "glitch". An example of this was pointed out to me on the following widths and heights
 ```
 710-726px x 837px
@@ -168,20 +172,10 @@ Since the project is built with Bootstrap 4 (Bootswatch) i'm fairly certain thin
 ```
 The bug here would be regarding ChartJS and the Angular 2 Charts, where it would try to resize itself and go into an infinite loop. I'm currently working finding a solution but trying to delay the resize or change the breakpoint will then cause it to break on a different breakpoint.
 
+ 1. Go to the Pokémon Stats page
+ 2. Resize to any of the above sizes. `710-726px X 837px` or `919-935px X 837px`
+ 3. You will see that the Chart will try to auto update and flickers.
 
-### Known Bugs
-
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part, you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
