@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 
-DeveloperMode = os.getenv("DEVELOPMENT", True)
+DeveloperMode = os.getenv("Development", True)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
