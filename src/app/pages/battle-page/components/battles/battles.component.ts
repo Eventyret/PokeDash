@@ -75,7 +75,7 @@ export class BattlesComponent implements OnInit {
 	}
 	stopFighting() {
 		if (!this.firstBattle) {
-			this.helpText = "Please stop the Fight to continue";
+			this.helpText = "You can now stop the fight";
 			this.color = "#FFCB05";
 			this.buttonText = "Stopping fight";
 			this.isLoading = true;
