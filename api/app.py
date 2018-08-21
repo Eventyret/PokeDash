@@ -3,7 +3,8 @@ from flask import Flask, jsonify, request, redirect
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 
-DeveloperMode = True
+
+DeveloperMode = os.getenv("DEVELOPMENT", True)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
