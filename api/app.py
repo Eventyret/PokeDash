@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 DeveloperMode = True
+Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
@@ -51,4 +52,7 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=DeveloperMode)
+    if Docker:
+        app.run(debug=DeveloperMode, host="0.0.0.0")
+    else:
+        app.run(debug=DeveloperMode)

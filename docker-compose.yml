@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: ./api/
+    restart: on-failure
+    container_name: pokedashapi
+    ports:
+      - '5000:5000'
+    volumes:
+      - './api:/code'
+    command: python app.py
+    image: 'pokedashapi:latest'
+    environment:
+      - FLASK_ENV=development
+      - docker=true
