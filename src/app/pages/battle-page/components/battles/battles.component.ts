@@ -25,7 +25,7 @@ export class BattlesComponent implements OnInit {
 	combatDisplay = true;
 	countdownText = 0;
 	helpText: string;
-	stopFightText = `Please stop <br />the fight to continue`;
+	stopFightText = `You can now stop the fight`;
 
 	ngOnInit() {
 		this.setBattleStatus(this.battleInput.isActive);
@@ -55,6 +55,7 @@ export class BattlesComponent implements OnInit {
 				}, 1500);
 			} else {
 				setTimeout(() => {
+					this.helpText = "Get Ready to fight";
 					this.battleInput.isActive = false;
 					this.color = "#F62D14";
 					this.buttonText = "Fight Again";
