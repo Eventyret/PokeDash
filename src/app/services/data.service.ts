@@ -12,7 +12,7 @@ import { Result } from "../shared/models/pokemons";
 	providedIn: "root"
 })
 export class PokemonDataService {
-	apiURL = environment.URL;
+	apiURL: string = environment.URL;
 	constructor(private http: HttpClient) {}
 
 	getPokemons() {
