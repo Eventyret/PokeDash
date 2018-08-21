@@ -65,6 +65,7 @@ If you do not have adobe XD installed you can have a look at the wireframes live
 - The minigame (aka Battle) needs a bit more attention to details, some people have requested to make use of stats to make a winner instead of random.
 - Legend for BarChart, this is working fine for Pie Chart but due to the package, it seems to have an issue with loading undefined on Bar charts.
 - Filter by other types. Currently it the table only sorts.
+- If the server does not respond and we get an error, you will be stuck on a loading screen, I'm working on implementing a error handler to remove the loadingscreen and show an error. Reason was I sadly did not get enough time to impement this, but the idea is then to redirect to a page. As without the data we are unable to display anything to the user.
 
 ## Technologies Used
 
@@ -157,15 +158,24 @@ I'm fairly certain that i have done alot of tests. So for manual we have tested 
 #### Responsive Testing
 
 ##### Browsers
-	- Microsoft Explorer 11
-	-  Microsoft Edge (v18)
-	-  Chrome (v70)
-	-  Firefox Developer Edition (v62)
+```
+Microsoft Explorer 11
+Microsoft Edge (v18)
+Chrome (v70)
+Firefox Developer Edition (v62)
+```
 
+##### Frontend
+I had some issues regarding the battle, where the help text would not update. This was simply because i forgot to rename the help text in `battles.component.ts` this was fixed at a later date but now updates correctly.
+
+The user would start a battle and the helptext would be `Get Ready to fight` user then would start the fight and the text would change to `Fight in progress` once fight was completed it would say `Please stop the Fight to continue` now the bug would the be that if a user clicked stop it would still display this message. This was fixed in the follwoing commit [#d922680](https://github.com/Eventyret/PokeDash/commit/d92268082b31c66d9670458f1e038ea157174f3b)
 
 ### Known Bugs
 
-Since the project is built with Bootstrap 4 (Bootswatch) i'm fairly certain things are responsive, though there will always be widths and heights that are uncommon and will "glitch". An example of this was pointed out to me on the following widths and heights
+Since the project is built with Bootstrap 4 (Bootswatch) i'm fairly certain things are responsive, though there will always be widths and heights that are uncommon and will "glitch".
+
+1. An example of this was pointed out to me on the following widths and heights
+
 ```
 710-726px x 837px
 919-935px x 837px
@@ -176,14 +186,69 @@ The bug here would be regarding ChartJS and the Angular 2 Charts, where it would
  2. Resize to any of the above sizes. `710-726px X 837px` or `919-935px X 837px`
  3. You will see that the Chart will try to auto update and flickers.
 
+2. There is also a bug where if Bar Chart Legend is enabled it will display undefined, I do think the reason for this is that it writes and creates the Labels BEFORE it fetches the data. Sadly I have been unable to fix this, so if you have a way to do this please let me know so this can be fixed.
+***To reporduce the bug or test this:***
+  1. Open `bar-chart.components.ts`
+  2. Change line 38 `public barChartLegend = false;` to `public barChartLegend = true;`
+  3. `ng serve` to start the server
+  4. Open PokéDash Stats Page or navigate to `/dashboard`
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+You will now see that at the top of the Bar Chart the legend its `undefined`
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+## Installing and building
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+### Requirements
+```
+NodeJS > 8
+NPM > 5.6
+Python > 3
+Angular > 4
+```
+
+##### Installing
+1. Clone the project `git clone https://github.com/Eventyret/PokeDash.git`
+2. `cd` into the project
+3. Create a Virtual Enviroment `virtualenv .venv` (This creates a folder named `.venv` to hold python enviroment files)
+4. Install Python dependancies `pip install -r api\requirements.txt` (the `api\` is if you still are in the PokeDash folder)
+5. Install Angular dependancies by running `npm install` (This will install all angular dependancies)
+
+#### Running project locally.
+
+As a developer I feel its important to give you different ways to run your backend in a simple and clean way, so I have made two ways to run your backend project.
+
+##### Backend
+1. Docker (Recommended)
+	If you have [Docker](https://www.docker.com/) installed you can simply run
+	`docker-compose up` and the server will be running on port 5000
+2. Manual
+	2.1 Activate the Virtual Enviroment:
+		Windows: `.venv\Scripts\Active`
+		Unix: `source .venv\bin\activate`
+	2.2 Start the server
+		`python api\app.py`
+		
+##### Frontend
+Since we are using angular for our build it's as simple as running: `ng serve` in the root folder of the project.
+This will start our development server on port `4200`
+##### Building
+To build your app and make it ready for deployment Angular again gives you a simple command to build and make this ready
+`ng build --prod --base-href "https://yourdomain.com/`
+If you are building this to be uploaded directly to the root folder of a domain you can also shorten this by doing
+`ng build --prod` 
+
+##### Backend
 
 ## Deployment
+
+##### Backend
+
+There is a simple but great git command we can use to upload JUST the backend instead of the whole project folder.
+We can use the power of git and use `git subtree` to upload and deploy ONLY the api to heroku you can use the following command.
+
+`git subtree push --prefix api heroku master`
+*note the api here which is the folder name we want to push*
+
+##### Frontend
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
