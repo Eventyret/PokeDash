@@ -4,12 +4,11 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 
-DeveloperMode = os.environ.get("Development", True)
+DeveloperMode = os.getenv("Development", True)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
-print(DeveloperMode)
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
 if DeveloperMode:
     app.config["MONGO_URI"] = "mongodb://api_dev_user:6L4Ltv7yFuKwguA@ds161751.mlab.com:61751/heroku_gtwrqfln"
@@ -26,7 +25,10 @@ def lets_redirect():
 
 @app.route("/api", methods=["GET"])
 def get_all_pokemons():
-    pokemons = mongo.db.pokemons_dev if DeveloperMode else mongo.db.pokemons
+    if DeveloperMode:
+        pokemons = mongo.db.pokemons_dev
+    else:
+        pokemons = mongo.db.pokemons
 
     # a dict mapping from output key to the key in a mongo pokemon document:
     record_keys = {
