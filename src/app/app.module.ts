@@ -27,6 +27,8 @@ import { StartupHelpComponent } from "./shared/components/startup-help/startup-h
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { StartupComponent } from "./pages/startup/startup.component";
 import { NgxPaginationModule } from "ngx-pagination";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 export const appRoutes: Routes = [
 	{ path: "", component: StartupComponent },
@@ -69,7 +71,9 @@ export const appRoutes: Routes = [
 		FormsModule,
 		NgbModule.forRoot(),
 		NgxSpinnerModule,
-		NgxPaginationModule
+		NgxPaginationModule,
+		BrowserAnimationsModule,
+		ToastrModule.forRoot()
 	],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]

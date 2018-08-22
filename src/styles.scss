@@ -1,8 +1,11 @@
+@import '~ngx-toastr/toastr.css';
+
 * {
 	box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
 	height: 100%;
 }
 
@@ -18,7 +21,8 @@ html, body {
 	height: 70vh;
 }
 
-.row, .container-fluid {
+.row,
+.container-fluid {
 	margin-left: 0;
 	margin-right: 0;
 	padding-left: 0;
@@ -46,32 +50,33 @@ html, body {
 }
 
 .page-link {
-    position: relative;
-    display: block;
-    padding: .5rem .75rem;
-    margin-left: -1px;
-    line-height: 1.25;
-    color: #fff !important;
-    background-color: #007bff;
+	position: relative;
+	display: block;
+	padding: 0.5rem 0.75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	color: #fff !important;
+	background-color: #007bff;
 	border: 1px solid #007bff;
 }
 .page-item.active .page-link {
-    z-index: 2;
-    color: #fff !important;
-    background-color: #F01C00;
-    border-color: #F01C00;
+	z-index: 2;
+	color: #fff !important;
+	background-color: #f01c00;
+	border-color: #f01c00;
 }
 .page-item.disabled .page-link {
-    visibility: hidden;
+	visibility: hidden;
 }
-.page-link:focus, .page-link:hover {
-    color: #fff !important;
-    text-decoration: none;
-    background-color: #007bff;
-    border-color: #007bff;
+.page-link:focus,
+.page-link:hover {
+	color: #fff !important;
+	text-decoration: none;
+	background-color: #007bff;
+	border-color: #007bff;
 }
 .badge-danger {
-	background-color: #F01C00;
+	background-color: #f01c00;
 }
 
 .help {
