@@ -4,11 +4,12 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 
-DeveloperMode = os.getenv("Development", default=True)
+DeveloperMode = os.getenv("Development", True)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
+print(DeveloperMode)
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
 if DeveloperMode:
     app.config["MONGO_URI"] = "mongodb://api_dev_user:6L4Ltv7yFuKwguA@ds161751.mlab.com:61751/heroku_gtwrqfln"
