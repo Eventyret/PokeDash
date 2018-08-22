@@ -5,6 +5,7 @@ from flask_cors import CORS
 
 
 DeveloperMode = os.getenv("Development", True)
+print(DeveloperMode)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
