@@ -103,6 +103,9 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [NgxSpinner](https://napster2210.github.io/ngx-spinner/)
     Animated loading spinner service, this is the small clock you will see when making API calls and waiting for data. This then gives a simple service which you can call with `.show()` or `.hide()`
 
+- [ngx-toastr](https://github.com/scttcper/ngx-toastr)
+	An amazing npm module to create minimal toast notification services.
+
 
 
 ### Back end
@@ -242,21 +245,33 @@ If you are building this to be uploaded directly to the root folder of a domain 
 
 ##### Backend
 
+***The App**
 There is a simple but great git command we can use to upload JUST the backend instead of the whole project folder.
 We can use the power of git and use `git subtree` to upload and deploy ONLY the api to heroku you can use the following command.
 
 `git subtree push --prefix api heroku master`
 *note the api here which is the folder name we want to push*
 
+***The Database***
+We are using mlab with heroku so there is a few steps to follow to get his setup please follow this guide to setup what you need [mLab MongoDB | Heroku Dev Center](https://devcenter.heroku.com/articles/mongolab)
+We need to set a secret variable so Heroku knows what database to use.
+**Make Sure you set the configurations before you push to the server**
+`heroku config:set Development=False`
+`heroku config: set SECRET_URI="mongodb://<dbuser>:<dbpassword>@XXX.mlab.com:XXXX/XXXX"`
+Make sure you change the following in that string
+	- <dbuser> your mlab username for the database
+	- <dbpassword> your mlab password for the database
+
+All this information you can find on [mlab Dashboard](https://www.mlab.com/databases/) once you are logged in. You are looking for a url like the one in this picture.
+![0r2UfHC.png](https://i.imgur.com/0r2UfHC.png)
+
+	
+
 ##### Frontend
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
+After you have **built** your application you got a few options.
+1. If you are uploading to your own domain, just upload the content of dist folder and your ready to go.
+2. If you want to deploy to GitHub Pages there is an amazing dev dependancy installed in the project for you named [GitHub pages for angular-cli users](https://github.com/angular-schule/angular-cli-ghpages). So all you need to do is issue the command `npx ngh` and the npm package will automatically publish this to your github pages.
+***Sidenote:*** If your using this method make sure you do `ng build --prod --base-href "https://USERNAME.github.io/REPOSITORY_NAME/"` this is to make it compatiable with github pages.
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
 
@@ -264,9 +279,11 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-
+- Loading Animation Pikachu - [Pikachu - SVG Animation #002](https://codepen.io/royutoan/pen/JXOwwL)
 ### Media
-- The photos used in this site were obtained from ...
+- All sprites is from this github repo [PokéAPI · GitHub](https://github.com/PokeAPI)
+- Professor Oak [LINE Official Stickers - Pokémon: The Oaks Example with GIF Animation](https://www.ilikesticker.com/LineStickerAnimation/S002997-Pok%C3%A9mon-The-Oaks/en)
+- Loading Animation [Pokemon Gold Desktop Background Animation - Album on Imgur](https://imgur.com/gallery/0Gi6O)
 
 ### Dataset
 - [Pokemon with stats | Kaggle](https://www.kaggle.com/abcsds/pokemon)
