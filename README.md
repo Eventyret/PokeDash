@@ -6,7 +6,7 @@ Or your own Pokedex? Even better what about an amazing simulated battle to watch
 Welcome to PokéDash the dashboard that gives you the overview with a dash of fun in!
 So come and start your own journey!
 
-[PokéDash](https://eventyret.github.io/PokemonDashboard/)
+# [PokéDash Live Demo](https://eventyret.github.io/PokeDash/)
  
 ## UX
 
@@ -40,7 +40,7 @@ Again for mobile "cards" were used for simplicity and the way it's easier for a 
 
 ### Page Not Found
 I always love good 404 pages, they are supposed to be fun but still have a meaning for the user.
-This will ruin the surprise with a screenshot so please do visit our the live demo [here](https://eventyret.github.io/PokemonDashboard/not-found)
+This will ruin the surprise with a screenshot so please do visit our the live demo [here](https://eventyret.github.io/PokeDash/not-found)
 
 ## [Live Wireframes](https://xd.adobe.com/view/b71a6a43-a920-4df7-4c89-2d12299817b7-c12b/?fullscreen&hints=off)
 If you do not have adobe XD installed you can have a look at the wireframes live on this page.
