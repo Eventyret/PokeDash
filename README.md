@@ -43,7 +43,7 @@ I always love good 404 pages, they are supposed to be fun but still have a meani
 This will ruin the surprise with a screenshot so please do visit our the live demo [here](https://eventyret.github.io/PokeDash/not-found)
 
 ## [Live Wireframes](https://xd.adobe.com/view/b71a6a43-a920-4df7-4c89-2d12299817b7-c12b/?fullscreen&hints=off)
-If you do not have adobe XD installed you can have a look at the wireframes live on this page.
+If you do not have adobe XD installed you can have a look at the wireframes live on this page. There is also attached a PDF file for those that want to look at it that way. 
 
 
 ## Features
@@ -88,7 +88,7 @@ These are technologies and third-party packages that are used throughout the pro
     This makes it easy to scaffold out components that we use in the project, saving time and give more time to focus on developing the application rather than create all the files, import them etc.
   
 - [Chart.js](https://www.chartjs.org/)
-    ChartJS was my choice to render graphs in this project, there are plenty of others like D3js, TauCharts,  C3.js etc but due to the flexibility and that it works with some components for angular making it native to load in it ment that the choice was easy.
+    ChartJS was my choice to render graphs in this project, there are plenty of others like D3js, TauCharts,  C3.js etc but due to the flexibility and that it works with some components for angular making it native to load in it meant that the choice was easy.
     > ChartJS is an open-source Javascript library. 
     
 - [Lodash](https://lodash.com/)
@@ -113,7 +113,9 @@ These are technologies and third-party packages that are used throughout the pro
     Using this to display errors and information on the first screen when fetching the API.
     >Easy Toasts for Angular
 
-
+- [GitHub pages for angular-cli users](https://github.com/angular-schule/angular-cli-ghpages)
+    This is a small dev dependency to make it easier to deploy our project to Github Pages.
+    >Publish to any gh-pages branch on GitHub (or any other branch on any other remote). Made for angular-cli users.
 
 ### Back end
 - [Python](https://www.python.org/)
@@ -179,7 +181,9 @@ Firefox Developer Edition (v62)
 ##### Frontend
 I had some issues regarding the battle, where the help text would not update. This was simply because I forgot to rename the help text in `battles.component.ts` this was fixed at a later date but now updates correctly.
 
-The user would start a battle and the help text would be `Get Ready to fight` user then would start the fight and the text would change to `Fight in progress` once fight was completed it would say `Please stop the Fight to continue` now the bug would the be that if a user clicked stop it would still display this message. This was fixed in the following commit [#d922680](https://github.com/Eventyret/PokeDash/commit/d92268082b31c66d9670458f1e038ea157174f3b)
+**User Story:**
+The user would start a battle and the help text would be `Get Ready to fight`. The user then would start the fight and the text would change to `Fight in progress`, once the fight was completed it would say `Please stop the Fight to continue`.
+Now the bug would the be that if a user clicked stop it would still display this message. This was fixed in the following commit [#d922680](https://github.com/Eventyret/PokeDash/commit/d92268082b31c66d9670458f1e038ea157174f3b)
 
 ### Known Bugs
 
@@ -197,7 +201,9 @@ The bug here would be regarding ChartJS and the Angular 2 Charts, where it would
  2. Resize to any of the above sizes. `710-726px X 837px` or `919-935px X 837px`
  3. You will see that the Chart will try to auto update and flickers.
 
-2. There is also a bug where if Bar Chart Legend is enabled it will display undefined, I do think the reason for this is that it writes and creates the Labels BEFORE it fetches the data. Sadly I have been unable to fix this, so if you have a way to do this please let me know so this can be fixed.
+
+
+There is also a bug where if Bar Chart Legend is enabled it will display `undefined`, I think the reason for this is that it writes and creates the Legends BEFORE it fetches the data. Sadly I have been unable to fix this, so if you have a way to do this please let me know so this can be fixed.
 ***To reproduce the bug or test this:***
   1. Open `bar-chart.components.ts`
   2. Change line 38 `public barChartLegend = false;` to `public barChartLegend = true;`
@@ -210,53 +216,88 @@ You will now see that at the top of the Bar Chart the legend it's undefined`
 
 ### Requirements
 ```
-NodeJS 8+
-NPM 5.6+
-Python 3+
-Angular 4+
+NodeJS 8+ (Built with: 10.7.0)
+NPM 5.6+ (Built with: 6.1.0)
+Python 3+ (Built with: 3.6.5)
+Angular 4+ (Built with: 6.1.3)
 ```
 
 ##### Installing
-1. Clone the project `git clone https://github.com/Eventyret/PokeDash.git`
-2. `cd` into the project
-3. Create a Virtual Environment `virtualenv .venv` (This creates a folder named `.venv` to hold python environment files)
-4. Install Python dependencies `pip install -r api\requirements.txt` (the `api\` is if you still are in the PokeDash folder)
-5. Install Angular dependencies by running `npm install` (This will install all angular dependencies)
+1. Clone the project (The documentation consider the `PokeDash` the root folder)
+```console
+git clone https://github.com/Eventyret/PokeDash.git
+```
+2. Change Directory into the root folder
+```console
+cd PokeDash
+```
+3. Create a Virtual Environment (This creates a folder named `.venv` to hold python environment files)
+```console
+virtualenv .venv
+```
+
+4. Install Python dependencies (This installs all flask dependencies)
+```console
+pip install -r api\requirements.txt
+```
+5. Install Angular dependencies by running (This installs all the angular dependencies)
+```console
+npm install
+```
 
 #### Running project locally.
 
 As a developer, I feel its important to give you different ways to run your backend in a simple and clean way, so I have made two ways to run your backend project.
 
-##### Backend
-***Sidenote***: The project has set up a default database to connect to on developer mode, check #Deployment for info on how to create a database etc to connect to.
+#### Backend
+***Sidenote***: The project has set up a default database to connect to on developer mode, check [Deployment](#Deployment) for info on how to create a database etc to connect to.
 1. Docker (Recommended)
-    If you have [Docker](https://www.docker.com/) installed you can simply run
-    `docker-compose up` and the server will be running on port 5000
+    If you have [Docker](https://www.docker.com/) installed you can simply run the command below (This will start the server on port `5000`)
+```console
+docker-compose up
+```
 2. Manual
-    2.1 Activate the Virtual Enviroment:
-        Windows: `.venv\Scripts\Active`
-        Unix: `source .venv\bin\activate`
-    2.2 Start the server
-        ```console
-        python api\app.py
-        ```
+- Activate the Virtual Environment:
+
+Windows: 
+```console
+.venv\Scripts\Active
+```
+Unix:
+```console
+source .venv\bin\activate
+```
+- Start the server
+```console
+python api\app.py        
+```
         
-##### Frontend
+#### Frontend
 Since we are using angular for our build it's as simple as running: `ng serve` in the root folder of the project.
 This will start our development server on port `4200`
-##### Building
+
+
+#### Building the application
+Since Angular is built with a mix of HTML, SCSS and Typescript the browser has no clue on how to interpret the languages, so we need to compile this into a web application.
+
 To build your app and make it ready for deployment Angular again gives you a simple command to build and make this ready
-`ng build --prod --base-href "https://yourdomain.com/`
+```console
+ng build --prod --base-href "https://yourdomain.com/
+```
 If you are building this to be uploaded directly to the root folder of a domain you can also shorten this by doing
-`ng build --prod` 
+```console
+ng build --prod
+```
 
 ##### Backend
+
+There is no compiling / building for the backend, so you can just continue to read about deploying the backend.
 
 ## Deployment
 
 ### Backend
 
-**The App**
+#### The API
 There is a simple but great git command we can use to upload JUST the backend instead of the whole project folder.
 We can use the power of git and use `git subtree` to upload and deploy ONLY the API to Heroku you can use the following command.
 
@@ -265,37 +306,49 @@ git subtree push --prefix api heroku master
 ```
 *note the API here which is the folder name we want to push*
 
-**The Database**
-We are using mlab with Heroku so please follow this guide [mLab MongoDB | Heroku Dev Center](https://devcenter.heroku.com/articles/mongolab) if you have not created a NoSQL database before with mlab
+#### The Database
+As we are using mlab to host our database please follow this guide [mLab MongoDB | Heroku Dev Center](https://devcenter.heroku.com/articles/mongolab) - This will help you set up a database to connect to.
+
+**Heroku Environment variables**
 We need to set a secret variable so Heroku knows what database to use.
-**Make Sure you set the configurations before you push to the server**
-`heroku config:set Development=False`
-`heroku config: set SECRET_URI="mongodb://<dbuser>:<dbpassword>@XXX.mlab.com:XXXX/XXXX"`
-Make sure you change the following in that string
-    - <dbuser> your mlab username for the database
-    - <dbpassword> your mlab password for the database
+
+```console
+heroku config:set Development=False
+```
+This tells the server that we are in a production environment and chooses the correct database accordingly.
+
+```console
+heroku config: set SECRET_URI="mongodb://dbuser:dbpassword@hostname:port/databasename"
+```
 
 All this information you can find on [mlab Dashboard](https://www.mlab.com/databases/) once you are logged in. You are looking for an URL like the one in this picture.
 ![0r2UfHC.png](https://i.imgur.com/0r2UfHC.png)
+Make sure you change the following in that string:
+    - `dbuser` your mlab username for the database
+    - `dbpassword` your mlab password for the database
 
+**NOTE: Make sure you set the configurations before you push to Heroku, else you won't get any data back.**
 
 ### Frontend
 After you have **built** your application you got a few options.
 1. If you are uploading to your own domain, just upload the content of the `dist` folder and you're ready to go.
 2. If you want to deploy to GitHub Pages there is an amazing dev dependency installed in the project for you named [GitHub pages for angular-cli users](https://github.com/angular-schule/angular-cli-ghpages). So all you need to do is issue the command `npx ngh` and the npm package will automatically publish this to your GitHub pages.
-***Sidenote:*** If your using this method make sure you do `ng build --prod --base-href "https://USERNAME.github.io/REPOSITORY_NAME/"` this is to make it compatible with GitHub pages.
-In addition, if it is not obvious, you should also describe how to run your code locally.
+
+***Sidenote:*** If your using this method make sure you do the following command. This is to make it compatible with GitHub pages.
+```console
+ng build --prod --base-href="https://USERNAME.github.io/REPOSITORY_NAME/"
+``` 
 
 
 ## Credits
 
 ### Content
-- Loading Animation Pikachu - [Pikachu - SVG Animation](https://codepen.io/royutoan/pen/JXOwwL)
+- [Pikachu - SVG Animation](https://codepen.io/royutoan/pen/JXOwwL) - Loading Animation Pikachu
 ### Media
 - [PokéAPI · GitHub](https://github.com/PokeAPI) - For all Pokémon Sprites
 - [I Like Sticker](https://www.ilikesticker.com/LineStickerAnimation/S002997-Pok%C3%A9mon-The-Oaks/en) - Professor Oak image
-- Loading Animation [Pokemon Gold Desktop Background Animation - Album on Imgur](https://imgur.com/gallery/0Gi6O)
+- [Pokemon Gold Desktop Background Animation - Album on Imgur](https://imgur.com/gallery/0Gi6O) -  Start Screen
 
 ### Dataset
-- [Pokemon with stats | Kaggle](https://www.kaggle.com/abcsds/pokemon)
-  - This is the Dataset originated from, have been customized and added images to all of them and cleaned up Mega Evolution Pokémon
+- [Pokemon with stats | Kaggle](https://www.kaggle.com/abcsds/pokemon) -
+This is the Dataset originated from, I have been customizing and added images to all of them. Also removed mega evolutions
