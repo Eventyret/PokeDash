@@ -1,9 +1,9 @@
 # PokéDash
 Reading about Pokémon is one thing, knowing about the 700+ different ones are another.
 How about an easy to understand chart to break down what types of Pokémon that exists?
-Or your own Pokedex? Even better what about an amazing simulated battle to watch two Pokémon's fight each other.
+Or your own Pokedex? Even better what about an amazing simulated battle to watch two Pokémon fight each other.
 
-Welcome to PokéDash the dashboard that gives you the overview with a dash of fun in!
+Welcome to PokéDash, the dashboard that gives you the overview with a dash of fun in!
 So come and start your own journey!
 
 # [PokéDash Live Demo](https://eventyret.github.io/PokeDash/)
