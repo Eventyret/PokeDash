@@ -13,13 +13,17 @@ export class AppComponent implements OnInit {
 	constructor(private pokemonService: PokemonDataService, private toastr: ToastrService) {}
 
 	ngOnInit() {
-		this.toastr.info("We are wrapping up all the Ultraballs and preparing your dashboard ", "Trying to catch them all...", {
+		this.toastr.info("We are analyzing all the Pokémons we caught 📊", "Trying to catch them all...", {
 			positionClass: "toast-bottom-center",
-			timeOut: 5000
+			timeOut: 3000
 		});
 		this.pokemonService.getPokemons().subscribe(
 			data => {
 				sessionStorage.setItem("pokemons", JSON.stringify(data));
+				this.toastr.success("We have analyzed all the Pokémon enjoy...","Task Completed", {
+					positionClass: "toast-bottom-center",
+					timeOut: 3000
+				})
 			},
 			error => {
 				this.toastr.error(
