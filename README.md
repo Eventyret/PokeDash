@@ -72,9 +72,9 @@ If you do not have adobe XD installed you can have a look at the wireframes live
 These are technologies and third-party packages that are used throughout the project
 
 ### Front End
-- [Angular](https://angular.io)/
-    Angular (commonly referred to as "Angular 2+") is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.
+- [Angular](https://angular.io)
     I'm using this to build all the front end logic and components for my app. As Typescript makes it easy to compile and also easy to scaffold code.
+    > Angular (commonly referred to as "Angular 2+") is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.
 - [Bootswatch - Cosmo](https://bootswatch.com/)
     Bootswatch is a collection of bootstrap themes. We are using the Cosmo theme modified with some material colours.
 
@@ -88,52 +88,57 @@ These are technologies and third-party packages that are used throughout the pro
     This makes it easy to scaffold out components that we use in the project, saving time and give more time to focus on developing the application rather than create all the files, import them etc.
   
 - [Chart.js](https://www.chartjs.org/)
-    ChartJS is an open-source Javascript library. All charts in this project are generated with this.
+    ChartJS was my choice to render graphs in this project, there are plenty of others like D3js, TauCharts,  C3.js etc but due to the flexibility and that it works with some components for angular making it native to load in it ment that the choice was easy.
+    > ChartJS is an open-source Javascript library. 
     
 - [Lodash](https://lodash.com/)
     Lodash is a modern JavaScript utility library making complex code with arrays and objects a simple task.
+    >A modern JavaScript utility library delivering modularity, performance & extras.
     
 - [Angular2 Charts](https://valor-software.com/ng2-charts/)
     Angular2 directives for Chart.js. This is used to render our Chart.js within Angular as a native directive.
+    >Angular2 directives for Chart.js
     
 - [Ngx-pagination](http://michaelbromley.github.io/ngx-pagination)
     A simple solution to create pagination without a lot of code using directives in Angular.
     On the mobile display we are switching from a table to cards, by using this we can then also add pagination to the same data without calling the directive on the charts.
+    >The simplest solution for pagination in Angular.
     
 - [NgxSpinner](https://napster2210.github.io/ngx-spinner/)
     Animated loading spinner service, this is the small clock you will see when making API calls and waiting for data. This then gives a simple service which you can call with `.show()` or `.hide()`
+    >An animated loading spinner for Angular 4/5 that is intended to inform the user that an operation is in progress.
 
 - [ngx-toastr](https://github.com/scttcper/ngx-toastr)
     An amazing npm module to create minimal toast notification services.
     Using this to display errors and information on the first screen when fetching the API.
+    >Easy Toasts for Angular
 
 
 
 ### Back end
 - [Python](https://www.python.org/)
-    >Python is a programming language that lets you work quickly and integrate systems more effectively.
     The whole backend is written in [Python](https://www.python.org/) as [Flask](http://flask.pocoo.org/) is written in Python.
+    >Python is a programming language that lets you work quickly and integrate systems more effectively.
     
 - [Flask](http://flask.pocoo.org/)
-    >Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
     The API backend is written with the [Flask Microframwork](http://flask.pocoo.org/) this is used to loop over the database, create an array and append the results into it for Angular to consume.
+     >Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
 
 - [MongoDB](https://www.mongodb.com/)
-    >MongoDB is a free and open-source cross-platform document-oriented database program
     The Pokémon data we gathered was a simple CSV file with the help of [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) we can make a simple one-line command to import a CSV file into our NoSQL Database.
+    >MongoDB is a free and open-source cross-platform document-oriented database program
     
 - [Heroku](https://www.heroku.com/)
-    >Heroku is a cloud platform as a service supporting several programming languages. 
-    >
     When hosting different applications that are not static [Heroku](https://www.heroku.com/) is a great choice at least I think.
-    If the backend is Django, Flask, Node, Ruby On Rails or any other this is a great hosting environment which simplifies a lot of work. 
+    If the backend is Django, Flask, Node, Ruby On Rails or any other this is a great hosting environment which simplifies a lot of work, it's also FREE.
     We can simply push our app to Heroku using their [CLI](https://devcenter.heroku.com/articles/heroku-cli) and from there it does everything for you, you can also setup pipelines and pull from a GitHub repo.
+    >Heroku is a cloud platform as a service supporting several programming languages. 
     
-    See more about this in [Deployment](#Deployment) below.
+    See more about this in [Deployment](##Deployment) below.
     
 - [mLab](https://www.mlab.com/)
-    >mLab is a fully managed cloud database service that hosts MongoDB databases.
     In convention with Heroku, this is offered as a free add-on, this means we do not need to spin our anything like a docker image or anything to run our host.
+    >mLab is a fully managed cloud database service that hosts MongoDB databases.
 
 
 
@@ -148,11 +153,13 @@ I wrote a quick and simple test to see if we can get a response with `content_ty
 This test should simply check that the route is correct and that it will give you the correct data back.
 
 You can run the unit test by executing the following:
-```python
+```console
 python api\test.py
 ```
+
 **Note:** If you are in the folder `api` you can simply run
-```python 
+
+```console 
 python test.py
 ```
 
@@ -230,7 +237,9 @@ As a developer, I feel its important to give you different ways to run your back
         Windows: `.venv\Scripts\Active`
         Unix: `source .venv\bin\activate`
     2.2 Start the server
-        `python api\app.py`
+        ```console
+        python api\app.py
+        ```
         
 ##### Frontend
 Since we are using angular for our build it's as simple as running: `ng serve` in the root folder of the project.
@@ -251,7 +260,9 @@ If you are building this to be uploaded directly to the root folder of a domain 
 There is a simple but great git command we can use to upload JUST the backend instead of the whole project folder.
 We can use the power of git and use `git subtree` to upload and deploy ONLY the API to Heroku you can use the following command.
 
-`git subtree push --prefix api heroku master`
+```console
+git subtree push --prefix api heroku master
+```
 *note the API here which is the folder name we want to push*
 
 **The Database**
