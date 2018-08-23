@@ -65,11 +65,11 @@ If you do not have adobe XD installed you can have a look at the wireframes live
 - The minigame (aka Battle) needs a bit more attention to details, some people have requested to make use of stats to make a winner instead of random.
 - Legend for BarChart, this is working fine for Pie Chart but due to the package, it seems to have an issue with loading undefined on Bar charts.
 - Filter by other types. Currently it the table only sorts.
-- If the server does not respond and we get an error, you will be stuck on a loading screen, I'm working on implementing a error handler to remove the loadingscreen and show an error. Reason was I sadly did not get enough time to impement this, but the idea is then to redirect to a page. As without the data we are unable to display anything to the user.
+- If the server does not respond and we get an error, you will be stuck on a loading screen, I'm working on implementing an error handler to remove the loading screen and show an error. The reason was I sadly did not get enough time to implement this, but the idea is then to redirect to a page. As without the data we are unable to display anything to the user. - ***This is now implemented***
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+These are technologies and third-party packages that are used throughout the project
 
 ### Front End
 - [Angular](https://angular.io)/
@@ -88,51 +88,52 @@ In this section, you should mention all of the languages, frameworks, libraries,
     This makes it easy to scaffold out components that we use in the project, saving time and give more time to focus on developing the application rather than create all the files, import them etc.
   
 - [Chart.js](https://www.chartjs.org/)
-    ChartJS is an open-source Javascript library. All charts in this projectare generated with this.
-	
+    ChartJS is an open-source Javascript library. All charts in this project are generated with this.
+    
 - [Lodash](https://lodash.com/)
-	Loadsh is a modern JavaScript utility libary making complex code with arrays and objects a simple task.
-	
+    Lodash is a modern JavaScript utility library making complex code with arrays and objects a simple task.
+    
 - [Angular2 Charts](https://valor-software.com/ng2-charts/)
     Angular2 directives for Chart.js. This is used to render our Chart.js within Angular as a native directive.
-	
+    
 - [Ngx-pagination](http://michaelbromley.github.io/ngx-pagination)
     A simple solution to create pagination without a lot of code using directives in Angular.
-	On the mobile display we are switching from an table to cards, by using this we can then also add pagination to the same data without calling the directive on the charts.
-	
+    On the mobile display we are switching from a table to cards, by using this we can then also add pagination to the same data without calling the directive on the charts.
+    
 - [NgxSpinner](https://napster2210.github.io/ngx-spinner/)
     Animated loading spinner service, this is the small clock you will see when making API calls and waiting for data. This then gives a simple service which you can call with `.show()` or `.hide()`
 
 - [ngx-toastr](https://github.com/scttcper/ngx-toastr)
-	An amazing npm module to create minimal toast notification services.
+    An amazing npm module to create minimal toast notification services.
+    Using this to display errors and information on the first screen when fetching the API.
 
 
 
 ### Back end
 - [Python](https://www.python.org/)
-	>Python is a programming language that lets you work quickly and integrate systems more effectively.
+    >Python is a programming language that lets you work quickly and integrate systems more effectively.
     The whole backend is written in [Python](https://www.python.org/) as [Flask](http://flask.pocoo.org/) is written in Python.
-	
+    
 - [Flask](http://flask.pocoo.org/)
-	>Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
+    >Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
     The API backend is written with the [Flask Microframwork](http://flask.pocoo.org/) this is used to loop over the database, create an array and append the results into it for Angular to consume.
 
 - [MongoDB](https://www.mongodb.com/)
     >MongoDB is a free and open-source cross-platform document-oriented database program
-	The Pokémon data we gathered was a simple CSV file with the help of [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) we can make a simple one line command to import a CSV file into our NoSQL Database.
-	
+    The Pokémon data we gathered was a simple CSV file with the help of [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) we can make a simple one-line command to import a CSV file into our NoSQL Database.
+    
 - [Heroku](https://www.heroku.com/)
     >Heroku is a cloud platform as a service supporting several programming languages. 
     >
-	When hosting different applications that are not static [Heroku](https://www.heroku.com/) is a great choice atleast I think.
-	If the backend is Django, Flask, Node, Ruby On Rails or any other this is a great hosting enviroment which simplifies alot of work. 
-	We can simply push our app to heroku using their [CLI](https://devcenter.heroku.com/articles/heroku-cli) and from there it does everyting for you, you can also setup pipelines and pull from a github repo.
-	
-	See more about this in [Deployment](#Deployment) below.
-	
+    When hosting different applications that are not static [Heroku](https://www.heroku.com/) is a great choice at least I think.
+    If the backend is Django, Flask, Node, Ruby On Rails or any other this is a great hosting environment which simplifies a lot of work. 
+    We can simply push our app to Heroku using their [CLI](https://devcenter.heroku.com/articles/heroku-cli) and from there it does everything for you, you can also setup pipelines and pull from a GitHub repo.
+    
+    See more about this in [Deployment](#Deployment) below.
+    
 - [mLab](https://www.mlab.com/)
     >mLab is a fully managed cloud database service that hosts MongoDB databases.
-    In convention with Heroku, this is offered as a free addon, this means we do not need to spin our anything like an docker image or anything to run our host.
+    In convention with Heroku, this is offered as a free add-on, this means we do not need to spin our anything like a docker image or anything to run our host.
 
 
 
@@ -156,7 +157,7 @@ python test.py
 ```
 
 ### Manual Tests
-I'm fairly certain that i have done alot of tests. So for manual we have tested the follwoing
+I'm fairly certain that I have done a lot of tests. So for manual tests, we have tested the following
 
 #### Responsive Testing
 
@@ -169,13 +170,13 @@ Firefox Developer Edition (v62)
 ```
 
 ##### Frontend
-I had some issues regarding the battle, where the help text would not update. This was simply because i forgot to rename the help text in `battles.component.ts` this was fixed at a later date but now updates correctly.
+I had some issues regarding the battle, where the help text would not update. This was simply because I forgot to rename the help text in `battles.component.ts` this was fixed at a later date but now updates correctly.
 
-The user would start a battle and the helptext would be `Get Ready to fight` user then would start the fight and the text would change to `Fight in progress` once fight was completed it would say `Please stop the Fight to continue` now the bug would the be that if a user clicked stop it would still display this message. This was fixed in the follwoing commit [#d922680](https://github.com/Eventyret/PokeDash/commit/d92268082b31c66d9670458f1e038ea157174f3b)
+The user would start a battle and the help text would be `Get Ready to fight` user then would start the fight and the text would change to `Fight in progress` once fight was completed it would say `Please stop the Fight to continue` now the bug would the be that if a user clicked stop it would still display this message. This was fixed in the following commit [#d922680](https://github.com/Eventyret/PokeDash/commit/d92268082b31c66d9670458f1e038ea157174f3b)
 
 ### Known Bugs
 
-Since the project is built with Bootstrap 4 (Bootswatch) i'm fairly certain things are responsive, though there will always be widths and heights that are uncommon and will "glitch".
+Since the project is built with Bootstrap 4 (Bootswatch) I'm fairly certain things are responsive, though there will always be widths and heights that are uncommon and will "glitch".
 
 1. An example of this was pointed out to me on the following widths and heights
 
@@ -190,46 +191,47 @@ The bug here would be regarding ChartJS and the Angular 2 Charts, where it would
  3. You will see that the Chart will try to auto update and flickers.
 
 2. There is also a bug where if Bar Chart Legend is enabled it will display undefined, I do think the reason for this is that it writes and creates the Labels BEFORE it fetches the data. Sadly I have been unable to fix this, so if you have a way to do this please let me know so this can be fixed.
-***To reporduce the bug or test this:***
+***To reproduce the bug or test this:***
   1. Open `bar-chart.components.ts`
   2. Change line 38 `public barChartLegend = false;` to `public barChartLegend = true;`
   3. `ng serve` to start the server
   4. Open PokéDash Stats Page or navigate to `/dashboard`
 
-You will now see that at the top of the Bar Chart the legend its `undefined`
+You will now see that at the top of the Bar Chart the legend it's undefined`
 
 ## Installing and building
 
 ### Requirements
 ```
-NodeJS > 8
-NPM > 5.6
-Python > 3
-Angular > 4
+NodeJS 8+
+NPM 5.6+
+Python 3+
+Angular 4+
 ```
 
 ##### Installing
 1. Clone the project `git clone https://github.com/Eventyret/PokeDash.git`
 2. `cd` into the project
-3. Create a Virtual Enviroment `virtualenv .venv` (This creates a folder named `.venv` to hold python enviroment files)
-4. Install Python dependancies `pip install -r api\requirements.txt` (the `api\` is if you still are in the PokeDash folder)
-5. Install Angular dependancies by running `npm install` (This will install all angular dependancies)
+3. Create a Virtual Environment `virtualenv .venv` (This creates a folder named `.venv` to hold python environment files)
+4. Install Python dependencies `pip install -r api\requirements.txt` (the `api\` is if you still are in the PokeDash folder)
+5. Install Angular dependencies by running `npm install` (This will install all angular dependencies)
 
 #### Running project locally.
 
-As a developer I feel its important to give you different ways to run your backend in a simple and clean way, so I have made two ways to run your backend project.
+As a developer, I feel its important to give you different ways to run your backend in a simple and clean way, so I have made two ways to run your backend project.
 
 ##### Backend
+***Sidenote***: The project has set up a default database to connect to on developer mode, check #Deployment for info on how to create a database etc to connect to.
 1. Docker (Recommended)
-	If you have [Docker](https://www.docker.com/) installed you can simply run
-	`docker-compose up` and the server will be running on port 5000
+    If you have [Docker](https://www.docker.com/) installed you can simply run
+    `docker-compose up` and the server will be running on port 5000
 2. Manual
-	2.1 Activate the Virtual Enviroment:
-		Windows: `.venv\Scripts\Active`
-		Unix: `source .venv\bin\activate`
-	2.2 Start the server
-		`python api\app.py`
-		
+    2.1 Activate the Virtual Enviroment:
+        Windows: `.venv\Scripts\Active`
+        Unix: `source .venv\bin\activate`
+    2.2 Start the server
+        `python api\app.py`
+        
 ##### Frontend
 Since we are using angular for our build it's as simple as running: `ng serve` in the root folder of the project.
 This will start our development server on port `4200`
@@ -243,51 +245,46 @@ If you are building this to be uploaded directly to the root folder of a domain 
 
 ## Deployment
 
-##### Backend
+### Backend
 
-***The App**
+**The App**
 There is a simple but great git command we can use to upload JUST the backend instead of the whole project folder.
-We can use the power of git and use `git subtree` to upload and deploy ONLY the api to heroku you can use the following command.
+We can use the power of git and use `git subtree` to upload and deploy ONLY the API to Heroku you can use the following command.
 
 `git subtree push --prefix api heroku master`
-*note the api here which is the folder name we want to push*
+*note the API here which is the folder name we want to push*
 
-***The Database***
-We are using mlab with heroku so there is a few steps to follow to get his setup please follow this guide to setup what you need [mLab MongoDB | Heroku Dev Center](https://devcenter.heroku.com/articles/mongolab)
+**The Database**
+We are using mlab with Heroku so please follow this guide [mLab MongoDB | Heroku Dev Center](https://devcenter.heroku.com/articles/mongolab) if you have not created a NoSQL database before with mlab
 We need to set a secret variable so Heroku knows what database to use.
 **Make Sure you set the configurations before you push to the server**
 `heroku config:set Development=False`
 `heroku config: set SECRET_URI="mongodb://<dbuser>:<dbpassword>@XXX.mlab.com:XXXX/XXXX"`
 Make sure you change the following in that string
-	- <dbuser> your mlab username for the database
-	- <dbpassword> your mlab password for the database
+    - <dbuser> your mlab username for the database
+    - <dbpassword> your mlab password for the database
 
-All this information you can find on [mlab Dashboard](https://www.mlab.com/databases/) once you are logged in. You are looking for a url like the one in this picture.
+All this information you can find on [mlab Dashboard](https://www.mlab.com/databases/) once you are logged in. You are looking for an URL like the one in this picture.
 ![0r2UfHC.png](https://i.imgur.com/0r2UfHC.png)
 
-	
 
-##### Frontend
+### Frontend
 After you have **built** your application you got a few options.
-1. If you are uploading to your own domain, just upload the content of dist folder and your ready to go.
-2. If you want to deploy to GitHub Pages there is an amazing dev dependancy installed in the project for you named [GitHub pages for angular-cli users](https://github.com/angular-schule/angular-cli-ghpages). So all you need to do is issue the command `npx ngh` and the npm package will automatically publish this to your github pages.
-***Sidenote:*** If your using this method make sure you do `ng build --prod --base-href "https://USERNAME.github.io/REPOSITORY_NAME/"` this is to make it compatiable with github pages.
+1. If you are uploading to your own domain, just upload the content of the `dist` folder and you're ready to go.
+2. If you want to deploy to GitHub Pages there is an amazing dev dependency installed in the project for you named [GitHub pages for angular-cli users](https://github.com/angular-schule/angular-cli-ghpages). So all you need to do is issue the command `npx ngh` and the npm package will automatically publish this to your GitHub pages.
+***Sidenote:*** If your using this method make sure you do `ng build --prod --base-href "https://USERNAME.github.io/REPOSITORY_NAME/"` this is to make it compatible with GitHub pages.
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-- Loading Animation Pikachu - [Pikachu - SVG Animation #002](https://codepen.io/royutoan/pen/JXOwwL)
+- Loading Animation Pikachu - [Pikachu - SVG Animation](https://codepen.io/royutoan/pen/JXOwwL)
 ### Media
-- All sprites is from this github repo [PokéAPI · GitHub](https://github.com/PokeAPI)
-- Professor Oak [LINE Official Stickers - Pokémon: The Oaks Example with GIF Animation](https://www.ilikesticker.com/LineStickerAnimation/S002997-Pok%C3%A9mon-The-Oaks/en)
+- [PokéAPI · GitHub](https://github.com/PokeAPI) - For all Pokémon Sprites
+- [I Like Sticker](https://www.ilikesticker.com/LineStickerAnimation/S002997-Pok%C3%A9mon-The-Oaks/en) - Professor Oak image
 - Loading Animation [Pokemon Gold Desktop Background Animation - Album on Imgur](https://imgur.com/gallery/0Gi6O)
 
 ### Dataset
 - [Pokemon with stats | Kaggle](https://www.kaggle.com/abcsds/pokemon)
   - This is the Dataset originated from, have been customized and added images to all of them and cleaned up Mega Evolution Pokémon
-### Acknowledgements
-
-- I received inspiration for this project from X
