@@ -4,16 +4,16 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 
 
-DeveloperMode = os.getenv("Development", True)
+DeveloperMode = os.getenv("Development", False)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "heroku_gtwrqfln"
-if DeveloperMode:
-    app.config["MONGO_URI"] = "mongodb://api_dev_user:6L4Ltv7yFuKwguA@ds161751.mlab.com:61751/heroku_gtwrqfln"
-else:
+if not DeveloperMode:
     app.config["MONGO_URI"] = SECRET_URI
+else:
+    app.config["MONGO_URI"] = "mongodb://api_dev_user:6L4Ltv7yFuKwguA@ds161751.mlab.com:61751/heroku_gtwrqfln"
 CORS(app)
 mongo = PyMongo(app)
 
@@ -25,10 +25,10 @@ def lets_redirect():
 
 @app.route("/api", methods=["GET"])
 def get_all_pokemons():
-    if DeveloperMode:
-        pokemons = mongo.db.pokemons_dev
-    else:
+    if not DeveloperMode:
         pokemons = mongo.db.pokemons
+    else:
+        pokemons = mongo.db.pokemons_dev
 
     # a dict mapping from output key to the key in a mongo pokemon document:
     record_keys = {
@@ -39,7 +39,7 @@ def get_all_pokemons():
         "Legendary": "Legendary", "Battle": "Battle",
         "Sprite": "Sprite",
     }
-    if DeveloperMode:
+    if not DeveloperMode:
         record_keys["DeveloperMode"] = "DeveloperMode"
 
     output = []
@@ -56,7 +56,11 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    if Docker:
-        app.run(debug=DeveloperMode, host="0.0.0.0")
+    if Docker and not DeveloperMode:
+        app.run(debug=True, host="0.0.0.0")
+    elif Docker and DeveloperMode:
+        app.run(debug=False, host="0.0.0.0")
+    elif not DeveloperMode:
+        app.run(debug=False)
     else:
-        app.run(debug=DeveloperMode)
+        app.run(debug=True)
