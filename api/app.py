@@ -3,7 +3,8 @@ from flask import Flask, jsonify, request, redirect
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 
-
+# As Developermode on herku  will return truthy we are reversing the question hence why we are checking if its NOT to make it developer mode.
+# This can be confusing apolgies upfront for this.
 DeveloperMode = os.getenv("Development", False)
 Docker = os.getenv("docker")
 SECRET_URI = os.getenv("SECRET_URI")
