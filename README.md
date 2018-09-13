@@ -265,11 +265,11 @@ Windows:
 ```
 Unix:
 ```console
-source .venv\bin\activate
+source .venv/bin/activate
 ```
 - Start the server
 ```console
-python api\app.py        
+python api/app.py        
 ```
         
 #### Frontend
