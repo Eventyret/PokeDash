@@ -15,7 +15,6 @@ import { BarChartComponent } from "./pages/dashboard/components/bar-chart/bar-ch
 import { PieChartComponent } from "./pages/dashboard/components/pie-chart/pie-chart.component";
 import { BattlePageComponent } from "./pages/battle-page/battle-page.component";
 import { BattlesComponent } from "./pages/battle-page/components/battles/battles.component";
-import { DataTableModule } from "angular2-datatable";
 import { HttpClientModule } from "@angular/common/http";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ListHelpComponent } from "./pages/pokemon-list/components/modals/list-help/list-help.component";
@@ -67,7 +66,6 @@ export const appRoutes: Routes = [
 		RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
 		ChartsModule,
 		HttpClientModule,
-		DataTableModule,
 		FormsModule,
 		NgxSpinnerModule,
 		NgxPaginationModule,

@@ -42,7 +42,7 @@ export class BattlesComponent implements OnInit {
 				this.color = "#5EE31C";
 				this.buttonText = "Stop Fight";
 				this.isLoading = false;
-				this.countDown();
+			//	this.countDown();
 			}, 2000);
 		} else {
 			this.stopFighting();
@@ -107,23 +107,23 @@ export class BattlesComponent implements OnInit {
 		this.combatDisplay = false;
 	}
 
-	countDown() {
-		// emit value every 1s
-		const source = interval(1000);
-		// after 5 seconds, emit value
-		const timer$ = timer(7000);
-		// when timer emits after 5s, complete source
-		const countdown = source.takeUntil(timer$);
-		countdown.subscribe(
-			val => {
-				this.countdownText = val;
-			},
-			error => {
-				console.log(error);
-			},
-			() => {
-				this.theWinner();
-			}
-		);
-	}
+	// countDown() {
+	// 	// emit value every 1s
+	// 	const source = interval(1000);
+	// 	// after 5 seconds, emit value
+	// 	const timer$ = timer(7000);
+	// 	// when timer emits after 5s, complete source
+	// 	const countdown = source.takeUntil(timer$);
+	// 	countdown.subscribe(
+	// 		val => {
+	// 			this.countdownText = val;
+	// 		},
+	// 		error => {
+	// 			console.log(error);
+	// 		},
+	// 		() => {
+	// 			this.theWinner();
+	// 		}
+	// 	);
+	// }
 }
