@@ -69,7 +69,6 @@ export const appRoutes: Routes = [
 		HttpClientModule,
 		DataTableModule,
 		FormsModule,
-		NgbModule.forRoot(),
 		NgxSpinnerModule,
 		NgxPaginationModule,
 		BrowserAnimationsModule,
