@@ -15,7 +15,6 @@ import { BarChartComponent } from "./pages/dashboard/components/bar-chart/bar-ch
 import { PieChartComponent } from "./pages/dashboard/components/pie-chart/pie-chart.component";
 import { BattlePageComponent } from "./pages/battle-page/battle-page.component";
 import { BattlesComponent } from "./pages/battle-page/components/battles/battles.component";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DataTableModule } from "angular2-datatable";
 import { HttpClientModule } from "@angular/common/http";
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -29,6 +28,7 @@ import { StartupComponent } from "./pages/startup/startup.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const appRoutes: Routes = [
 	{ path: "", component: StartupComponent },
@@ -72,7 +72,8 @@ export const appRoutes: Routes = [
 		NgxSpinnerModule,
 		NgxPaginationModule,
 		BrowserAnimationsModule,
-		ToastrModule.forRoot()
+		ToastrModule.forRoot(),
+		NgbModule
 	],
 	providers: [PokemonDataService],
 	bootstrap: [AppComponent]
