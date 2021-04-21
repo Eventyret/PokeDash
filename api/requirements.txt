@@ -4,7 +4,7 @@ Flask-Cors==3.0.6
 Flask-PyMongo==2.0.1
 gunicorn==19.9.0
 jsonify==0.5
-py==1.5.4
+py==1.10.0
 pycodestyle==2.4.0
 pylint==2.1.0
 pylint-flask==0.5
